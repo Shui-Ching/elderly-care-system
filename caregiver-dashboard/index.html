@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>守護 — 家屬照護儀表板</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.min.css">
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="app-logo">守護</div>
+    <div class="top-actions">
+      <button class="icon-btn" aria-label="通知">
+        <div class="notif-dot"></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 01-3.46 0"/>
+        </svg>
+      </button>
+      <button class="icon-btn" aria-label="設定">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- 問候語 -->
+    <div class="greeting">
+      <div class="greeting-sub">早安，志明 — 2026 年 5 月 30 日</div>
+      <div class="greeting-main" id="greeting-main">媽媽今天 <strong>一切正常</strong></div>
+    </div>
+
+    <!-- 長者狀態卡 -->
+    <div class="elder-hero-card" id="hero-card">
+      <div class="elder-info-row">
+        <div class="elder-avatar">
+          陳
+          <div class="avatar-pulse"></div>
+        </div>
+        <div class="elder-meta">
+          <div class="elder-name">陳秀英 女士</div>
+          <div class="elder-detail">78 歲・台北市大安區</div>
+        </div>
+        <div class="status-badge" id="status-badge">
+          <div class="status-dot"></div>
+          <span id="badge-text">正常</span>
+        </div>
+      </div>
+
+      <div class="status-stats">
+        <div class="status-stat">
+          <div class="stat-value highlight">35<small> 分</small></div>
+          <div class="stat-label">最後活動</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="status-stat">
+          <div class="stat-value">7</div>
+          <div class="stat-label">今日事件</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="status-stat">
+          <div class="stat-value" style="font-size:18px;">✓</div>
+          <div class="stat-label">已服藥</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 快速操作 -->
+    <div class="quick-actions">
+      <div class="action-btn call">
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.81 19.79 19.79 0 01.36 2.18 2 2 0 012.34 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.09 6.09l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <span class="action-label">電話聯繫</span>
+      </div>
+      <div class="action-btn video">
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <span class="action-label">視訊通話</span>
+      </div>
+      <div class="action-btn sos">
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <span class="action-label">緊急通報</span>
+      </div>
+    </div>
+
+    <!-- 感測器狀態 -->
+    <div class="sensor-section">
+      <div class="section-header">
+        <span class="section-title">感測器狀態</span>
+        <span class="section-link">詳細 →</span>
+      </div>
+      <div class="sensor-row">
+        <div class="sensor-card">
+          <div class="sensor-emoji">🚪</div>
+          <div class="sensor-name">門磁</div>
+          <div class="sensor-pip"></div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-emoji">💡</div>
+          <div class="sensor-name">電力</div>
+          <div class="sensor-pip"></div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-emoji">🚶</div>
+          <div class="sensor-name">移動</div>
+          <div class="sensor-pip"></div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-emoji">❤️</div>
+          <div class="sensor-name">心率帶</div>
+          <div class="sensor-pip offline"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活動時間軸 -->
+    <div class="timeline-section">
+      <div class="section-header">
+        <span class="section-title">今日活動記錄</span>
+        <span class="section-link">全部 →</span>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-list">
+
+          <div class="tl-item">
+            <div class="tl-icon tl-movement">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">偵測到客廳活動</div>
+              <div class="tl-sub">移動感測器觸發</div>
+            </div>
+            <div class="tl-time">10:18</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon tl-medicine">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">早餐後服藥確認</div>
+              <div class="tl-sub">已按確認按鈕</div>
+            </div>
+            <div class="tl-time">08:45</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon tl-food">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 010 8h-1"/>
+                <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                <line x1="6" y1="1" x2="6" y2="4"/>
+                <line x1="10" y1="1" x2="10" y2="4"/>
+                <line x1="14" y1="1" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">廚房活動偵測</div>
+              <div class="tl-sub">推測正在準備早餐</div>
+            </div>
+            <div class="tl-time">08:12</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon tl-door">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">大門開啟・返回</div>
+              <div class="tl-sub">外出後 22 分鐘返回</div>
+            </div>
+            <div class="tl-time">07:30</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon tl-sleep">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">起床偵測</div>
+              <div class="tl-sub">昨晚 22:30 就寢，睡眠 8.5 小時</div>
+            </div>
+            <div class="tl-time">07:08</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 近期警報 -->
+    <div class="alert-section">
+      <div class="section-header">
+        <span class="section-title">近期警報紀錄</span>
+        <span class="section-link">全部 →</span>
+      </div>
+      <div class="alert-list">
+        <div class="alert-item">
+          <div class="alert-bar green"></div>
+          <div class="alert-content">
+            <div class="alert-title">🟡 黃燈警報 — 已解除</div>
+            <div class="alert-desc">昨日 14:30 超過 4 小時無活動，電話確認後解除</div>
+          </div>
+          <div class="alert-time">昨天</div>
+        </div>
+        <div class="alert-item">
+          <div class="alert-bar yellow"></div>
+          <div class="alert-content">
+            <div class="alert-title">服藥未確認提醒</div>
+            <div class="alert-desc">晚間服藥逾時 2 小時未確認</div>
+          </div>
+          <div class="alert-time">3 天前</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 12px;"></div>
+  </main>
+
+</div><!-- /app-wrapper -->
+
+<script src="js/bottom-nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+// 入口：載入所有 partials
+// 編譯指令：sass --watch scss/main.scss:css/main.css
+
+@use 'tokens';       // 設計 Token — 全域 CSS 自定義屬性（色彩、間距、字體等）
+@use 'base';         // Reset & Base — 全域樣式初始化、body 基礎設定
+@use 'animations';   // 共用 Keyframe 動畫（fade-up 等）
+@use 'layout';       // 頁面骨架：App Wrapper、Top Bar、Main Content、Bottom Nav
+@use 'greeting';     // 問候語區塊
+@use 'elder-card';   // 長者狀態卡（Hero Card）— 照片、姓名、即時狀態
+@use 'quick-actions'; // 快速操作按鈕列（撥打、訊息、緊急等）
+@use 'sensor';       // 感測器狀態列（心率、體溫、活動等數值卡）
+@use 'timeline';     // 活動時間軸
+@use 'alerts';        // 近期警報列表（首頁用）
+@use 'alerts-page';   // 警報頁面完整元件
+ 

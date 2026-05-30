@@ -1,0 +1,162 @@
+// 長者狀態卡（Hero Card）
+
+.elder-hero-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 22px 20px 20px;
+  position: relative;
+  overflow: hidden;
+  animation: fade-up 0.45s ease both;
+  animation-delay: 0.08s;
+
+  // 右上角狀態光暈裝飾
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -30px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-green-glow) 0%, transparent 70%);
+    pointer-events: none;
+    transition: background 0.8s ease;
+  }
+
+  &.status-yellow::before { background: radial-gradient(circle, var(--color-yellow-glow) 0%, transparent 70%); }
+  &.status-red::before    { background: radial-gradient(circle, var(--color-red-glow)    0%, transparent 70%); }
+}
+
+// 上方資訊列：頭像 + 姓名 + 徽章
+.elder-info-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.elder-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fde3b8 0%, #f5c880 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  border: 1.5px solid rgba(224, 112, 48, 0.35);
+  position: relative;
+}
+
+.avatar-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-accent);
+  opacity: 0;
+  animation: pulse-ring 3.2s ease-out infinite;
+}
+
+.elder-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.elder-name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.elder-detail {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+}
+
+// 狀態徽章
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  background: var(--color-green-dim);
+  color: var(--color-green);
+  border: 1px solid rgba(26, 158, 106, 0.22);
+  transition: all 0.4s;
+
+  &.yellow {
+    background: var(--color-yellow-dim);
+    color: var(--color-yellow);
+    border-color: rgba(212, 144, 10, 0.22);
+  }
+
+  &.red {
+    background: var(--color-red-dim);
+    color: var(--color-red);
+    border-color: rgba(201, 48, 40, 0.22);
+  }
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: dot-blink 2s ease-in-out infinite;
+}
+
+// 三欄統計列
+.status-stats {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  align-items: center;
+}
+
+.stat-divider {
+  height: 32px;
+  background: var(--color-border);
+}
+
+.status-stat {
+  text-align: center;
+  padding: 0 8px;
+}
+
+.stat-value {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1;
+  margin-bottom: 5px;
+
+  &.highlight { color: var(--color-green); }
+
+  small {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
