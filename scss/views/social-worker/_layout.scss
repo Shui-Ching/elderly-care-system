@@ -1,0 +1,55 @@
+// 社工後台頁面骨架 — 桌機側邊欄佈局
+
+$sidebar-width: 13.75rem;
+
+.view-social-worker .app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+// 固定側邊欄
+.view-social-worker .sidebar {
+  width: $sidebar-width;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border-right: 0.0625rem solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+// 主內容區（避開側邊欄）
+.view-social-worker .main-area {
+  margin-left: $sidebar-width;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// 頂部標題列（sticky）
+.view-social-worker .top-header {
+  height: 3.5rem;
+  background: var(--color-surface);
+  border-bottom: 0.0625rem solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  gap: 1rem;
+}
+
+// 頁面內容
+.view-social-worker .page-content {
+  flex: 1;
+  padding: 1.75rem;
+  animation: fade-up 0.25s ease;
+}

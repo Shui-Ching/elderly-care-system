@@ -1,0 +1,440 @@
+// 家屬端我的頁面專屬元件
+
+.view-caregiver .profile-page {
+  padding-top: 0.5rem;
+  gap: 0.75rem;
+}
+
+.view-caregiver .profile-section-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-left: 0.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.view-caregiver .profile-card {
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.view-caregiver .profile-section {
+  display: flex;
+  flex-direction: column;
+  animation: fade-up 0.32s ease both;
+
+  &:nth-child(2) { animation-delay: 0.04s; }
+  &:nth-child(3) { animation-delay: 0.08s; }
+  &:nth-child(4) { animation-delay: 0.12s; }
+  &:nth-child(5) { animation-delay: 0.16s; }
+  &:nth-child(6) { animation-delay: 0.20s; }
+}
+
+// 家屬帳號卡
+.view-caregiver .profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.125rem 1rem;
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-lg);
+  animation: fade-up 0.32s ease both;
+}
+
+.view-caregiver .profile-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--color-accent-dim);
+  border: 0.125rem solid rgba(224, 112, 48, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.view-caregiver .profile-hero-body { flex: 1; }
+
+.view-caregiver .profile-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.view-caregiver .profile-role {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  margin-top: 0.1875rem;
+}
+
+.view-caregiver .profile-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  padding: 0.4375rem 0.875rem;
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid var(--color-border);
+  background: var(--color-surface-raised);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  flex-shrink: 0;
+
+  svg { width: 0.875rem; height: 0.875rem; }
+
+  &:hover {
+    background: var(--color-surface-high);
+    color: var(--color-text-primary);
+  }
+}
+
+// 被照護者資訊卡
+.view-caregiver .elder-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.0625rem solid var(--color-border-subtle);
+}
+
+.view-caregiver .elder-profile-avatar {
+  width: 2.875rem;
+  height: 2.875rem;
+  border-radius: 50%;
+  background: var(--color-green-dim);
+  border: 0.125rem solid rgba(26, 158, 106, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--color-green);
+  flex-shrink: 0;
+}
+
+.view-caregiver .elder-profile-info { flex: 1; }
+
+.view-caregiver .elder-profile-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.view-caregiver .elder-profile-sub {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  margin-top: 0.1875rem;
+}
+
+.view-caregiver .status-pip-lg {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.green  { background: var(--color-green);  box-shadow: 0 0 0 0.25rem var(--color-green-glow); }
+  &.yellow { background: var(--color-yellow); box-shadow: 0 0 0 0.25rem var(--color-yellow-glow); }
+  &.red    { background: var(--color-red);    box-shadow: 0 0 0 0.25rem var(--color-red-glow); }
+}
+
+.view-caregiver .profile-meta-list,
+.view-caregiver .app-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.view-caregiver .profile-meta-item,
+.view-caregiver .app-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.5625rem 0;
+  gap: 0.75rem;
+
+  &:not(:last-child) {
+    border-bottom: 0.0625rem solid var(--color-border-subtle);
+  }
+}
+
+.view-caregiver .meta-label {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  flex-shrink: 0;
+}
+
+.view-caregiver .meta-value {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-align: right;
+  line-height: 1.4;
+}
+
+.view-caregiver .meta-link {
+  color: var(--color-accent);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+// 照護團隊
+.view-caregiver .care-team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.view-caregiver .care-team-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 0;
+
+  &:not(:last-child) {
+    border-bottom: 0.0625rem solid var(--color-border-subtle);
+  }
+}
+
+.view-caregiver .care-team-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--c, #3060c0) 14%, transparent);
+  border: 0.09375rem solid color-mix(in srgb, var(--c, #3060c0) 30%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c, #3060c0);
+  flex-shrink: 0;
+}
+
+.view-caregiver .care-team-info { flex: 1; }
+
+.view-caregiver .care-team-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.view-caregiver .care-team-role {
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  margin-top: 0.125rem;
+}
+
+.view-caregiver .care-team-call {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--color-green-dim);
+  border: 0.0625rem solid rgba(26, 158, 106, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.18s;
+  text-decoration: none;
+
+  svg { width: 0.9375rem; height: 0.9375rem; stroke: var(--color-green); }
+
+  &:hover { background: rgba(26, 158, 106, 0.2); }
+}
+
+// 通知設定
+.view-caregiver .notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.view-caregiver .notif-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8125rem 0;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-bottom: 0.0625rem solid var(--color-border-subtle);
+  }
+}
+
+.view-caregiver .notif-item-info { flex: 1; }
+
+.view-caregiver .notif-item-name {
+  display: flex;
+  align-items: center;
+  gap: 0.4375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 0.1875rem;
+}
+
+.view-caregiver .notif-item-desc {
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  line-height: 1.35;
+}
+
+.view-caregiver .notif-level-dot {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.red    { background: var(--color-red); }
+  &.yellow { background: var(--color-yellow); }
+  &.orange { background: var(--color-accent); }
+  &.green  { background: var(--color-green); }
+}
+
+// Toggle 開關
+.view-caregiver .toggle-wrap {
+  flex-shrink: 0;
+  position: relative;
+  width: 2.75rem;
+  height: 1.5rem;
+}
+
+.view-caregiver .toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.view-caregiver .toggle-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: var(--color-surface-high);
+  border: 0.09375rem solid var(--color-border);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.1875rem;
+    width: 1.0625rem;
+    height: 1.0625rem;
+    border-radius: 50%;
+    background: var(--color-text-dim);
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.15);
+  }
+}
+
+.view-caregiver .toggle-input:checked + .toggle-track {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+
+  &::after {
+    transform: translateX(1.25rem);
+    background: #fff;
+  }
+}
+
+// 感測器裝置
+.view-caregiver .device-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.view-caregiver .device-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 0;
+
+  &:not(:last-child) {
+    border-bottom: 0.0625rem solid var(--color-border-subtle);
+  }
+}
+
+.view-caregiver .device-icon-wrap {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-high);
+  border: 0.0625rem solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg { width: 1rem; height: 1rem; stroke: var(--color-text-secondary); }
+}
+
+.view-caregiver .device-info { flex: 1; }
+
+.view-caregiver .device-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.view-caregiver .device-sub {
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  margin-top: 0.125rem;
+}
+
+.view-caregiver .device-status {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5625rem;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+
+  &.online     { background: var(--color-green-dim);  color: var(--color-green);  border: 0.0625rem solid rgba(26, 158, 106, 0.2); }
+  &.low-battery { background: var(--color-yellow-dim); color: var(--color-yellow); border: 0.0625rem solid rgba(212, 144, 10, 0.2); }
+  &.offline    { background: var(--color-surface-high); color: var(--color-text-dim); border: 0.0625rem solid var(--color-border); }
+}
+
+// App 資訊 & 登出
+.view-caregiver .app-info-list {
+  margin-bottom: 1rem;
+}
+
+.view-caregiver .logout-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid rgba(201, 48, 40, 0.25);
+  background: var(--color-red-dim);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-red);
+  cursor: pointer;
+  transition: background 0.18s;
+  text-align: center;
+
+  &:hover { background: rgba(201, 48, 40, 0.18); }
+}

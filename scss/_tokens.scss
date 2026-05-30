@@ -1,0 +1,52 @@
+// 設計 Token — 全域 CSS 自定義屬性（所有角色共用）
+
+:root {
+  // 背景層次
+  --color-bg:             #fdf6ec;
+  --color-surface:        #ffffff;
+  --color-surface-raised: #fff9f0;
+  --color-surface-high:   #fff3e0;
+
+  // 邊框
+  --color-border:        rgba(180, 110, 40, 0.15);
+  --color-border-subtle: rgba(180, 110, 40, 0.08);
+
+  // 文字
+  --color-text-primary:   #2c1a08;
+  --color-text-secondary: #7d5535;
+  --color-text-dim:       #b8906a;
+
+  // 主調暖橙
+  --color-accent:     #e07030;
+  --color-accent-dim: rgba(224, 112, 48, 0.12);
+
+  // 🟢 正常
+  --color-green:      #1a9e6a;
+  --color-green-dim:  rgba(26, 158, 106, 0.12);
+  --color-green-glow: rgba(26, 158, 106, 0.20);
+
+  // 🟡 待確認
+  --color-yellow:      #d4900a;
+  --color-yellow-dim:  rgba(212, 144, 10, 0.12);
+  --color-yellow-glow: rgba(212, 144, 10, 0.20);
+
+  // 🔴 緊急
+  --color-red:      #c93028;
+  --color-red-dim:  rgba(201, 48, 40, 0.10);
+  --color-red-glow: rgba(201, 48, 40, 0.20);
+
+  // 感測器輔助色
+  --color-blue:   #3060c0;
+  --color-purple: #7050b8;
+  --color-slate:  #506090;
+
+  // 字型 — 全角色統一
+  --font-display: 'Noto Sans TC', 'Inter', sans-serif;
+  --font-ui:      'Noto Sans TC', 'Inter', sans-serif;
+
+  // 圓角（rem，無障礙合規）
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.625rem;
+}

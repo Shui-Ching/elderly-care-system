@@ -1,0 +1,36 @@
+// Body 基礎設定 — 依角色 class 切換佈局模式
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+// 家屬 App（手機限寬 430px）
+body.view-caregiver {
+  max-width: 26.875rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+// 長者端（平板限寬 680px）
+body.view-elder {
+  max-width: 42.5rem;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+// 社工後台 / 管理員（桌機全寬，佈局由各自 view 處理）
+body.view-social-worker,
+body.view-admin {
+  // 全寬，側邊欄佈局由 views/social-worker/_layout.scss 處理
+}
+
+// 角色選擇頁（index）
+body.view-role-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

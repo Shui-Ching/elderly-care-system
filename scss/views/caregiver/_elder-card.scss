@@ -1,0 +1,162 @@
+// 長者狀態卡（Hero Card）
+
+.view-caregiver .elder-hero-card {
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.375rem 1.25rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  animation: fade-up 0.45s ease both;
+  animation-delay: 0.08s;
+
+  // 右上角狀態光暈裝飾
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3.125rem;
+    right: -1.875rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-green-glow) 0%, transparent 70%);
+    pointer-events: none;
+    transition: background 0.8s ease;
+  }
+
+  &.status-yellow::before { background: radial-gradient(circle, var(--color-yellow-glow) 0%, transparent 70%); }
+  &.status-red::before    { background: radial-gradient(circle, var(--color-red-glow)    0%, transparent 70%); }
+}
+
+// 上方資訊列
+.view-caregiver .elder-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.view-caregiver .elder-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fde3b8 0%, #f5c880 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  border: 0.09375rem solid rgba(224, 112, 48, 0.35);
+  position: relative;
+}
+
+.view-caregiver .avatar-pulse {
+  position: absolute;
+  inset: -0.25rem;
+  border-radius: 50%;
+  border: 0.09375rem solid var(--color-accent);
+  opacity: 0;
+  animation: pulse-ring 3.2s ease-out infinite;
+}
+
+.view-caregiver .elder-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.view-caregiver .elder-name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.view-caregiver .elder-detail {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+}
+
+// 狀態徽章
+.view-caregiver .status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  padding: 0.3125rem 0.6875rem;
+  border-radius: 6.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  background: var(--color-green-dim);
+  color: var(--color-green);
+  border: 0.0625rem solid rgba(26, 158, 106, 0.22);
+  transition: all 0.4s;
+
+  &.yellow {
+    background: var(--color-yellow-dim);
+    color: var(--color-yellow);
+    border-color: rgba(212, 144, 10, 0.22);
+  }
+
+  &.red {
+    background: var(--color-red-dim);
+    color: var(--color-red);
+    border-color: rgba(201, 48, 40, 0.22);
+  }
+}
+
+.view-caregiver .status-dot {
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: currentColor;
+  animation: dot-blink 2s ease-in-out infinite;
+}
+
+// 三欄統計列
+.view-caregiver .status-stats {
+  display: grid;
+  grid-template-columns: 1fr 0.0625rem 1fr 0.0625rem 1fr;
+  align-items: center;
+}
+
+.view-caregiver .stat-divider {
+  height: 2rem;
+  background: var(--color-border);
+}
+
+.view-caregiver .status-stat {
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.view-caregiver .stat-value {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1;
+  margin-bottom: 0.3125rem;
+
+  &.highlight { color: var(--color-green); }
+
+  small {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+}
+
+.view-caregiver .stat-label {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}

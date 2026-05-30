@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>活動記錄 — 守護</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="view-caregiver">
+
+<div class="app-wrapper">
+
+  <!-- TOP BAR：內頁版本，含返回鍵 -->
+  <header class="top-bar top-bar--inner">
+    <div class="top-bar-left">
+      <button class="icon-btn" onclick="location.href='caregiver.html'" aria-label="返回">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <span class="page-title">活動記錄</span>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" aria-label="匯出記錄">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content activity-page">
+
+    <!-- 日期導航 -->
+    <div class="day-nav">
+      <button class="day-nav-btn" id="btn-prev" aria-label="上一天">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <div class="day-nav-center">
+        <span class="day-nav-date" id="day-nav-date">5月30日，週六</span>
+        <span class="day-nav-today" id="day-nav-today">今天</span>
+      </div>
+      <button class="day-nav-btn" id="btn-next" disabled aria-label="下一天">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- 每日摘要 -->
+    <div class="day-summary">
+      <div class="day-stat">
+        <div class="day-stat-value" id="stat-events">9</div>
+        <div class="day-stat-label">今日事件</div>
+      </div>
+      <div class="day-stat-divider"></div>
+      <div class="day-stat">
+        <div class="day-stat-value" id="stat-gap">43<small>分</small></div>
+        <div class="day-stat-label">最長空窗</div>
+      </div>
+      <div class="day-stat-divider"></div>
+      <div class="day-stat">
+        <div class="day-stat-value" id="stat-outdoor">22<small>分</small></div>
+        <div class="day-stat-label">外出時長</div>
+      </div>
+    </div>
+
+    <!-- 24hr 活動熱圖 -->
+    <div class="activity-heatmap">
+      <div class="heatmap-title">24 小時活動概覽</div>
+      <div class="heatmap-bar" id="heatmap-bar">
+        <!-- JS 動態產生 24 cells -->
+      </div>
+      <div class="heatmap-labels">
+        <span>0</span>
+        <span>06</span>
+        <span>12</span>
+        <span>18</span>
+        <span>23</span>
+      </div>
+    </div>
+
+    <!-- 分類篩選 -->
+    <div class="activity-filter-bar" id="activity-filter-bar">
+      <button class="filter-tab active" data-cat="all">
+        全部<span class="filter-count">10</span>
+      </button>
+      <button class="filter-tab" data-cat="movement">
+        移動<span class="filter-count">4</span>
+      </button>
+      <button class="filter-tab" data-cat="door">
+        門磁<span class="filter-count">3</span>
+      </button>
+      <button class="filter-tab" data-cat="medicine">
+        服藥<span class="filter-count">1</span>
+      </button>
+      <button class="filter-tab" data-cat="food">
+        飲食<span class="filter-count">1</span>
+      </button>
+      <button class="filter-tab" data-cat="sleep">
+        睡眠<span class="filter-count">1</span>
+      </button>
+    </div>
+
+    <!-- 活動時間軸 -->
+    <div class="activity-feed" id="activity-feed">
+
+      <!-- ===== 上午 block ===== -->
+      <div class="tl-block" id="block-morning">
+        <div class="tl-block-label">上午</div>
+        <div class="timeline-card">
+          <div class="timeline-list">
+
+            <div class="tl-item" data-cat="movement">
+              <div class="tl-icon tl-movement">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">客廳持續活動偵測</div>
+                <div class="tl-sub">移動感測器連續觸發・約 12 分鐘</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>感測器</span><span>客廳移動偵測器 A2</span></div>
+                  <div class="tl-detail-row"><span>觸發次數</span><span>3 次連續</span></div>
+                  <div class="tl-detail-row"><span>持續時長</span><span>約 12 分鐘</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">10:18</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="tl-item" data-cat="movement">
+              <div class="tl-icon tl-movement">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">客廳電力使用偵測</div>
+                <div class="tl-sub">電視開啟，推測正在休息</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>感測器</span><span>智慧電力監測</span></div>
+                  <div class="tl-detail-row"><span>耗電增量</span><span>+82 W</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">09:55</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="tl-item" data-cat="movement">
+              <div class="tl-icon tl-movement">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">浴室活動偵測</div>
+                <div class="tl-sub">浴室移動感測器觸發</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>感測器</span><span>浴室移動偵測器 B1</span></div>
+                  <div class="tl-detail-row"><span>持續時長</span><span>約 6 分鐘</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">09:28</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="tl-item" data-cat="medicine">
+              <div class="tl-icon tl-medicine">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">早餐後服藥確認</div>
+                <div class="tl-sub">已按裝置確認按鈕</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>藥物</span><span>早間綜合藥組（3 顆）</span></div>
+                  <div class="tl-detail-row"><span>預定時間</span><span>08:30</span></div>
+                  <div class="tl-detail-row"><span>實際確認</span><span>08:45（延遲 15 分）</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">08:45</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="tl-item" data-cat="food">
+              <div class="tl-icon tl-food">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 010 8h-1"/>
+                  <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                  <line x1="6" y1="1" x2="6" y2="4"/>
+                  <line x1="10" y1="1" x2="10" y2="4"/>
+                  <line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">廚房活動偵測</div>
+                <div class="tl-sub">瓦斯使用偵測，推測正在準備早餐</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>感測器</span><span>廚房瓦斯偵測 + 移動</span></div>
+                  <div class="tl-detail-row"><span>持續時長</span><span>約 18 分鐘</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">08:12</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /block-morning -->
+
+      <!-- ===== 清晨 block ===== -->
+      <div class="tl-block" id="block-dawn">
+        <div class="tl-block-label">清晨</div>
+        <div class="timeline-card">
+          <div class="timeline-list">
+
+            <div class="tl-item" data-cat="door">
+              <div class="tl-icon tl-door">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">大門開啟・返回</div>
+                <div class="tl-sub">外出後 22 分鐘返回</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>感測器</span><span>玄關門磁 M01</span></div>
+                  <div class="tl-detail-row"><span>外出時長</span><span>22 分鐘</span></div>
+                  <div class="tl-detail-row"><span>外出時段</span><span>07:08 — 07:30</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">07:30</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="tl-item" data-cat="door">
+              <div class="tl-icon tl-door">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">大門開啟・外出</div>
+                <div class="tl-sub">推測前往社區公園或便利商店</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>感測器</span><span>玄關門磁 M01</span></div>
+                  <div class="tl-detail-row"><span>時刻</span><span>07:08 開門離開</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">07:08</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="tl-item" data-cat="door">
+              <div class="tl-icon tl-door">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">臥房門開啟</div>
+                <div class="tl-sub">就寢後首次門磁觸發</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>感測器</span><span>臥房門磁 M02</span></div>
+                  <div class="tl-detail-row"><span>備註</span><span>昨夜 22:30 後首次觸發</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">07:03</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+            <div class="tl-item" data-cat="movement">
+              <div class="tl-icon tl-sleep">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">起床偵測</div>
+                <div class="tl-sub">昨晚 22:30 就寢・睡眠 8.5 小時</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>就寢時間</span><span>昨晚 22:30</span></div>
+                  <div class="tl-detail-row"><span>睡眠時長</span><span>8.5 小時（良好）</span></div>
+                  <div class="tl-detail-row"><span>夜間活動</span><span>無異常起床記錄</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">07:00</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /block-dawn -->
+
+      <!-- ===== 昨夜 block ===== -->
+      <div class="tl-block" id="block-sleep">
+        <div class="tl-block-label">昨夜</div>
+        <div class="timeline-card">
+          <div class="timeline-list">
+
+            <div class="tl-item" data-cat="sleep">
+              <div class="tl-icon tl-sleep">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                </svg>
+              </div>
+              <div class="tl-content">
+                <div class="tl-event">就寢・睡眠記錄</div>
+                <div class="tl-sub">22:30 — 07:00（8.5 小時）・夜間無異常</div>
+                <div class="tl-detail">
+                  <div class="tl-detail-row"><span>開始</span><span>昨晚 22:30</span></div>
+                  <div class="tl-detail-row"><span>結束</span><span>今日 07:00</span></div>
+                  <div class="tl-detail-row"><span>夜間起床</span><span>無記錄</span></div>
+                  <div class="tl-detail-row"><span>評估</span><span>睡眠品質良好</span></div>
+                </div>
+              </div>
+              <div class="tl-right">
+                <div class="tl-time">22:30</div>
+                <svg class="tl-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /block-sleep -->
+
+      <!-- 空狀態（篩選無結果時顯示）-->
+      <div class="activity-empty" id="activity-empty">
+        <div class="activity-empty-icon">📋</div>
+        此分類今日無記錄
+      </div>
+
+    </div><!-- /activity-feed -->
+
+  </main>
+
+</div><!-- /app-wrapper -->
+
+<script src="js/caregiver-bottom-nav.js"></script>
+<script src="js/caregiver-activity.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的 — 守護</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="view-caregiver">
+
+<div class="app-wrapper">
+
+  <!-- TOP BAR：內頁版本，含返回鍵 -->
+  <header class="top-bar top-bar--inner">
+    <div class="top-bar-left">
+      <button class="icon-btn" onclick="location.href='caregiver.html'" aria-label="返回">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <span class="page-title">我的</span>
+    </div>
+  </header>
+
+  <main class="main-content profile-page">
+
+    <!-- ① 家屬帳號卡 -->
+    <div class="profile-hero">
+      <div class="profile-avatar">志</div>
+      <div class="profile-hero-body">
+        <div class="profile-name">陳志明</div>
+        <div class="profile-role">家屬・兒子</div>
+      </div>
+      <button class="profile-edit-btn" aria-label="編輯個人資料">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+        編輯
+      </button>
+    </div>
+
+    <!-- ② 被照護者資訊 -->
+    <div class="profile-section">
+      <div class="profile-section-label">被照護者</div>
+      <div class="profile-card">
+
+        <div class="elder-profile-header">
+          <div class="elder-profile-avatar">陳</div>
+          <div class="elder-profile-info">
+            <div class="elder-profile-name">陳秀英 女士</div>
+            <div class="elder-profile-sub">78 歲・台北市大安區</div>
+          </div>
+          <div class="status-pip-lg green"></div>
+        </div>
+
+        <div class="profile-meta-list">
+          <div class="profile-meta-item">
+            <span class="meta-label">主治醫師</span>
+            <span class="meta-value">王大明 醫師・台大醫院</span>
+          </div>
+          <div class="profile-meta-item">
+            <span class="meta-label">血型 / 過敏</span>
+            <span class="meta-value">A 型・盤尼西林過敏</span>
+          </div>
+          <div class="profile-meta-item">
+            <span class="meta-label">慢性病</span>
+            <span class="meta-value">高血壓、第二型糖尿病</span>
+          </div>
+          <div class="profile-meta-item">
+            <span class="meta-label">住址</span>
+            <span class="meta-value">台北市大安區復興南路一段 120 巷</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ③ 照護團隊 -->
+    <div class="profile-section">
+      <div class="profile-section-label">照護團隊</div>
+      <div class="profile-card">
+        <div class="care-team-list">
+
+          <div class="care-team-item">
+            <div class="care-team-avatar" style="--c: #3060c0">林</div>
+            <div class="care-team-info">
+              <div class="care-team-name">林佳穎</div>
+              <div class="care-team-role">負責社工・大安社工站</div>
+            </div>
+            <a class="care-team-call" href="tel:+886912000001" aria-label="致電林佳穎">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="care-team-item">
+            <div class="care-team-avatar" style="--c: #1a9e6a">張</div>
+            <div class="care-team-info">
+              <div class="care-team-name">張和平</div>
+              <div class="care-team-role">里長・大安區和平里</div>
+            </div>
+            <a class="care-team-call" href="tel:+886912000002" aria-label="致電張里長">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="care-team-item">
+            <div class="care-team-avatar" style="--c: #7050b8">陳</div>
+            <div class="care-team-info">
+              <div class="care-team-name">陳淑芬</div>
+              <div class="care-team-role">家屬・女兒</div>
+            </div>
+            <a class="care-team-call" href="tel:+886912000003" aria-label="致電陳淑芬">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ 通知設定 -->
+    <div class="profile-section">
+      <div class="profile-section-label">通知設定</div>
+      <div class="profile-card">
+        <div class="notif-list">
+
+          <label class="notif-item">
+            <div class="notif-item-info">
+              <div class="notif-item-name">
+                <span class="notif-level-dot red"></span>
+                紅燈緊急警報
+              </div>
+              <div class="notif-item-desc">立即推送，同時簡訊通知</div>
+            </div>
+            <div class="toggle-wrap">
+              <input type="checkbox" class="toggle-input" id="notif-red" checked>
+              <label class="toggle-track" for="notif-red" aria-hidden="true"></label>
+            </div>
+          </label>
+
+          <label class="notif-item">
+            <div class="notif-item-info">
+              <div class="notif-item-name">
+                <span class="notif-level-dot yellow"></span>
+                黃燈待確認警報
+              </div>
+              <div class="notif-item-desc">系統電話確認後推送通知</div>
+            </div>
+            <div class="toggle-wrap">
+              <input type="checkbox" class="toggle-input" id="notif-yellow" checked>
+              <label class="toggle-track" for="notif-yellow" aria-hidden="true"></label>
+            </div>
+          </label>
+
+          <label class="notif-item">
+            <div class="notif-item-info">
+              <div class="notif-item-name">
+                <span class="notif-level-dot orange"></span>
+                服藥未確認提醒
+              </div>
+              <div class="notif-item-desc">逾時 30 分鐘通知家屬</div>
+            </div>
+            <div class="toggle-wrap">
+              <input type="checkbox" class="toggle-input" id="notif-medicine" checked>
+              <label class="toggle-track" for="notif-medicine" aria-hidden="true"></label>
+            </div>
+          </label>
+
+          <label class="notif-item">
+            <div class="notif-item-info">
+              <div class="notif-item-name">
+                <span class="notif-level-dot green"></span>
+                每日健康報告
+              </div>
+              <div class="notif-item-desc">每天晚上 8 點摘要推送</div>
+            </div>
+            <div class="toggle-wrap">
+              <input type="checkbox" class="toggle-input" id="notif-report">
+              <label class="toggle-track" for="notif-report" aria-hidden="true"></label>
+            </div>
+          </label>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ 感測器裝置 -->
+    <div class="profile-section">
+      <div class="profile-section-label">感測器裝置</div>
+      <div class="profile-card">
+        <div class="device-list">
+
+          <div class="device-item">
+            <div class="device-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="device-info">
+              <div class="device-name">玄關門磁 M01</div>
+              <div class="device-sub">最後回報 10 分鐘前</div>
+            </div>
+            <span class="device-status online">正常</span>
+          </div>
+
+          <div class="device-item">
+            <div class="device-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="device-info">
+              <div class="device-name">臥房門磁 M02</div>
+              <div class="device-sub">最後回報 12 分鐘前</div>
+            </div>
+            <span class="device-status online">正常</span>
+          </div>
+
+          <div class="device-item">
+            <div class="device-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div class="device-info">
+              <div class="device-name">客廳移動偵測 A2</div>
+              <div class="device-sub">最後回報 8 分鐘前</div>
+            </div>
+            <span class="device-status online">正常</span>
+          </div>
+
+          <div class="device-item">
+            <div class="device-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div class="device-info">
+              <div class="device-name">浴室移動偵測 B1</div>
+              <div class="device-sub">最後回報 9 分鐘前</div>
+            </div>
+            <span class="device-status online">正常</span>
+          </div>
+
+          <div class="device-item">
+            <div class="device-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <div class="device-info">
+              <div class="device-name">廚房瓦斯偵測 G1</div>
+              <div class="device-sub">最後回報 11 分鐘前</div>
+            </div>
+            <span class="device-status online">正常</span>
+          </div>
+
+          <div class="device-item">
+            <div class="device-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="device-info">
+              <div class="device-name">穿戴式心率帶</div>
+              <div class="device-sub">電量 12%・需盡快充電</div>
+            </div>
+            <span class="device-status low-battery">低電量</span>
+          </div>
+
+          <div class="device-item">
+            <div class="device-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+              </svg>
+            </div>
+            <div class="device-info">
+              <div class="device-name">緊急呼叫按鈕</div>
+              <div class="device-sub">超過 24 小時未回報</div>
+            </div>
+            <span class="device-status offline">離線</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑥ App 資訊 / 登出 -->
+    <div class="profile-section">
+      <div class="profile-card">
+        <div class="app-info-list">
+          <div class="app-info-item">
+            <span class="meta-label">App 版本</span>
+            <span class="meta-value">1.0.0 (Beta)</span>
+          </div>
+          <div class="app-info-item">
+            <span class="meta-label">服務條款</span>
+            <span class="meta-value meta-link">查閱 →</span>
+          </div>
+          <div class="app-info-item">
+            <span class="meta-label">隱私政策</span>
+            <span class="meta-value meta-link">查閱 →</span>
+          </div>
+        </div>
+        <button class="logout-btn">登出</button>
+      </div>
+    </div>
+
+    <div style="height: 0.75rem;"></div>
+  </main>
+
+</div><!-- /app-wrapper -->
+
+<script src="js/caregiver-bottom-nav.js"></script>
+</body>
+</html>

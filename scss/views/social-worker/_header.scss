@@ -1,0 +1,101 @@
+// 社工後台頂部標題列元件
+
+.view-social-worker .header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.view-social-worker .header-page-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.view-social-worker .header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.view-social-worker .header-date {
+  font-size: 0.8125rem;
+  color: var(--color-text-dim);
+}
+
+.view-social-worker .header-notif-btn {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: background 0.12s;
+  flex-shrink: 0;
+
+  svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  &:hover {
+    background: var(--color-surface-raised);
+  }
+
+  .notif-dot {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 50%;
+    background: var(--color-red);
+    border: 0.125rem solid var(--color-surface);
+    animation: dot-blink 2s ease-in-out infinite;
+  }
+}
+
+.view-social-worker .header-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.3125rem 0.5rem;
+  border-radius: var(--radius-md);
+  transition: background 0.12s;
+
+  &:hover {
+    background: var(--color-surface-raised);
+  }
+
+  .header-avatar {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    background: var(--color-accent-dim);
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .header-user-info {
+    .header-user-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      line-height: 1.2;
+    }
+
+    .header-user-role {
+      font-size: 0.6875rem;
+      color: var(--color-text-dim);
+    }
+  }
+}

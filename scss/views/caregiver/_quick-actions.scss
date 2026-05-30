@@ -1,0 +1,52 @@
+// 家屬端快速操作按鈕列
+
+.view-caregiver .quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.625rem;
+  animation: fade-up 0.45s ease both;
+  animation-delay: 0.16s;
+}
+
+.view-caregiver .action-btn {
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 0.9375rem 0.5rem 0.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+  user-select: none;
+
+  &:hover {
+    background: var(--color-surface-raised);
+    transform: translateY(-0.125rem);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.view-caregiver .action-icon {
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1875rem;
+}
+
+.view-caregiver .action-btn.call  .action-icon { background: var(--color-green-dim);  color: var(--color-green);  }
+.view-caregiver .action-btn.video .action-icon { background: var(--color-accent-dim); color: var(--color-accent); }
+.view-caregiver .action-btn.sos   .action-icon { background: var(--color-red-dim);    color: var(--color-red);    }
+
+.view-caregiver .action-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}

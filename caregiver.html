@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>守護 — 家屬照護儀表板</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="view-caregiver">
+
+<div class="app-wrapper">
+
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a class="role-switch-link" href="index.html" aria-label="返回角色選擇">← 切換角色</a>
+      <div class="app-logo">守護</div>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" aria-label="通知">
+        <div class="notif-dot"></div>
+        <i class="bi bi-bell"></i>
+      </button>
+      <button class="icon-btn" aria-label="設定">
+        <i class="bi bi-gear"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- 問候語 -->
+    <div class="greeting">
+      <div class="greeting-sub">早安，志明 — 2026 年 5 月 30 日</div>
+      <div class="greeting-main" id="greeting-main">媽媽今天 <strong>一切正常</strong></div>
+    </div>
+
+    <!-- 長者狀態卡 -->
+    <div class="elder-hero-card" id="hero-card">
+      <div class="elder-info-row">
+        <div class="elder-avatar">
+          陳
+          <div class="avatar-pulse"></div>
+        </div>
+        <div class="elder-meta">
+          <div class="elder-name">陳秀英 女士</div>
+          <div class="elder-detail">78 歲・台北市大安區</div>
+        </div>
+        <div class="status-badge" id="status-badge">
+          <div class="status-dot"></div>
+          <span id="badge-text">正常</span>
+        </div>
+      </div>
+
+      <div class="status-stats">
+        <div class="status-stat">
+          <div class="stat-value highlight">35<small> 分</small></div>
+          <div class="stat-label">最後活動</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="status-stat">
+          <div class="stat-value">7</div>
+          <div class="stat-label">今日事件</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="status-stat">
+          <div class="stat-value"><i class="bi bi-check-lg"></i></div>
+          <div class="stat-label">已服藥</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 快速操作 -->
+    <div class="quick-actions">
+      <div class="action-btn call">
+        <div class="action-icon">
+          <i class="bi bi-telephone"></i>
+        </div>
+        <span class="action-label">電話聯繫</span>
+      </div>
+      <div class="action-btn video">
+        <div class="action-icon">
+          <i class="bi bi-camera-video"></i>
+        </div>
+        <span class="action-label">視訊通話</span>
+      </div>
+      <div class="action-btn sos">
+        <div class="action-icon">
+          <i class="bi bi-exclamation-circle"></i>
+        </div>
+        <span class="action-label">緊急通報</span>
+      </div>
+    </div>
+
+    <!-- 感測器狀態 -->
+    <div class="sensor-section">
+      <div class="section-header">
+        <span class="section-title">感測器狀態</span>
+        <span class="section-link">詳細 →</span>
+      </div>
+      <div class="sensor-row">
+        <div class="sensor-card">
+          <div class="sensor-icon"><i class="bi bi-door-closed"></i></div>
+          <div class="sensor-name">門磁</div>
+          <div class="sensor-pip"></div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-icon"><i class="bi bi-lightning-charge"></i></div>
+          <div class="sensor-name">電力</div>
+          <div class="sensor-pip"></div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-icon"><i class="bi bi-person-walking"></i></div>
+          <div class="sensor-name">移動</div>
+          <div class="sensor-pip"></div>
+        </div>
+        <div class="sensor-card">
+          <div class="sensor-icon"><i class="bi bi-heart-pulse"></i></div>
+          <div class="sensor-name">心率帶</div>
+          <div class="sensor-pip offline"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活動時間軸 -->
+    <div class="timeline-section">
+      <div class="section-header">
+        <span class="section-title">今日活動記錄</span>
+        <a class="section-link" href="caregiver-activity.html">全部 →</a>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-list">
+
+          <div class="tl-item">
+            <div class="tl-icon tl-movement">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">偵測到客廳活動</div>
+              <div class="tl-sub">移動感測器觸發</div>
+            </div>
+            <div class="tl-time">10:18</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon tl-medicine">
+              <i class="bi bi-check-lg"></i>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">早餐後服藥確認</div>
+              <div class="tl-sub">已按確認按鈕</div>
+            </div>
+            <div class="tl-time">08:45</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon tl-food">
+              <i class="bi bi-cup-hot"></i>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">廚房活動偵測</div>
+              <div class="tl-sub">推測正在準備早餐</div>
+            </div>
+            <div class="tl-time">08:12</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon tl-door">
+              <i class="bi bi-house"></i>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">大門開啟・返回</div>
+              <div class="tl-sub">外出後 22 分鐘返回</div>
+            </div>
+            <div class="tl-time">07:30</div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-icon tl-sleep">
+              <i class="bi bi-moon-stars"></i>
+            </div>
+            <div class="tl-content">
+              <div class="tl-event">起床偵測</div>
+              <div class="tl-sub">昨晚 22:30 就寢，睡眠 8.5 小時</div>
+            </div>
+            <div class="tl-time">07:08</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 近期警報 -->
+    <div class="alert-section">
+      <div class="section-header">
+        <span class="section-title">近期警報紀錄</span>
+        <a class="section-link" href="caregiver-alerts.html">全部 →</a>
+      </div>
+      <div class="alert-list">
+        <div class="alert-item">
+          <div class="alert-bar green"></div>
+          <div class="alert-content">
+            <div class="alert-title"><i class="bi bi-exclamation-triangle-fill alert-icon-warn"></i> 黃燈警報 — 已解除</div>
+            <div class="alert-desc">昨日 14:30 超過 4 小時無活動，電話確認後解除</div>
+          </div>
+          <div class="alert-time">昨天</div>
+        </div>
+        <div class="alert-item">
+          <div class="alert-bar yellow"></div>
+          <div class="alert-content">
+            <div class="alert-title">服藥未確認提醒</div>
+            <div class="alert-desc">晚間服藥逾時 2 小時未確認</div>
+          </div>
+          <div class="alert-time">3 天前</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 0.75rem;"></div>
+  </main>
+
+</div><!-- /app-wrapper -->
+
+<script src="js/caregiver-bottom-nav.js"></script>
+<script src="js/caregiver-main.js"></script>
+</body>
+</html>

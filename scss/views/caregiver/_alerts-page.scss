@@ -1,0 +1,366 @@
+// 家屬端警報頁面專屬元件
+
+// ---- 警報頁 main-content 覆寫 ----
+.view-caregiver .alerts-page {
+  padding-top: 0.75rem;
+}
+
+// ---- 當前狀態橫幅 ----
+.view-caregiver .alert-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.125rem;
+  border-radius: var(--radius-lg);
+  border: 0.0625rem solid var(--color-border);
+  background: var(--color-surface);
+  animation: fade-up 0.35s ease both;
+
+  &.green {
+    background: var(--color-green-dim);
+    border-color: rgba(26, 158, 106, 0.25);
+
+    .status-banner-dot  { background: var(--color-green); box-shadow: 0 0 0 0.3125rem var(--color-green-glow); }
+    .status-banner-value { color: var(--color-green); }
+  }
+
+  &.yellow {
+    background: var(--color-yellow-dim);
+    border-color: rgba(212, 144, 10, 0.25);
+
+    .status-banner-dot  { background: var(--color-yellow); box-shadow: 0 0 0 0.3125rem var(--color-yellow-glow); animation: dot-blink 1.4s ease-in-out infinite; }
+    .status-banner-value { color: var(--color-yellow); }
+  }
+
+  &.red {
+    background: var(--color-red-dim);
+    border-color: rgba(201, 48, 40, 0.25);
+
+    .status-banner-dot  { background: var(--color-red); box-shadow: 0 0 0 0.3125rem var(--color-red-glow); animation: dot-blink 0.8s ease-in-out infinite; }
+    .status-banner-value { color: var(--color-red); }
+  }
+}
+
+.view-caregiver .status-banner-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+}
+
+.view-caregiver .status-banner-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.view-caregiver .status-banner-body { flex: 1; }
+
+.view-caregiver .status-banner-label {
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  margin-bottom: 0.1875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.view-caregiver .status-banner-value {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.view-caregiver .status-banner-meta { text-align: right; flex-shrink: 0; }
+
+.view-caregiver .status-banner-since {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.view-caregiver .status-banner-date {
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  margin-top: 0.125rem;
+}
+
+// ---- 篩選標籤列 ----
+.view-caregiver .alert-filter-bar {
+  display: flex;
+  gap: 0.375rem;
+  animation: fade-up 0.35s ease both;
+  animation-delay: 0.08s;
+}
+
+.view-caregiver .filter-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4375rem 0.8125rem;
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid var(--color-border);
+  background: var(--color-surface);
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+
+  &:hover {
+    background: var(--color-surface-raised);
+    color: var(--color-text-primary);
+  }
+
+  &.active {
+    background: var(--color-accent-dim);
+    border-color: rgba(224, 112, 48, 0.3);
+    color: var(--color-accent);
+  }
+}
+
+.view-caregiver .filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.0625rem;
+  height: 1.0625rem;
+  padding: 0 0.25rem;
+  border-radius: 0.5625rem;
+  background: var(--color-surface-high);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-text-dim);
+
+  &.is-active {
+    background: var(--color-red-dim);
+    color: var(--color-red);
+  }
+}
+
+// ---- 警報列表容器 ----
+.view-caregiver .alert-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  animation: fade-up 0.35s ease both;
+  animation-delay: 0.16s;
+  padding-bottom: 0.5rem;
+}
+
+// ---- 警報卡片 ----
+.view-caregiver .alert-card {
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-left-width: 0.1875rem;
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  transition: opacity 0.22s, transform 0.22s;
+
+  &.hidden { display: none; }
+
+  &.level-red    { border-left-color: var(--color-red); }
+  &.level-yellow { border-left-color: var(--color-yellow); }
+}
+
+.view-caregiver .alert-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.625rem;
+}
+
+// 等級標籤 pill
+.view-caregiver .alert-level-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5625rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+
+  .level-dot {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &.red {
+    background: var(--color-red-dim);
+    color: var(--color-red);
+    border: 0.0625rem solid rgba(201, 48, 40, 0.2);
+    .level-dot { background: var(--color-red); }
+  }
+
+  &.yellow {
+    background: var(--color-yellow-dim);
+    color: var(--color-yellow);
+    border: 0.0625rem solid rgba(212, 144, 10, 0.2);
+    .level-dot { background: var(--color-yellow); }
+  }
+}
+
+.view-caregiver .alert-card-time {
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+}
+
+.view-caregiver .alert-card-trigger {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  margin-bottom: 0.3125rem;
+}
+
+.view-caregiver .alert-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  margin-bottom: 0.875rem;
+}
+
+.view-caregiver .dot-divider { opacity: 0.45; }
+
+// ---- 升級時間軸 ----
+.view-caregiver .alert-escalation {
+  margin-bottom: 0.875rem;
+  padding-left: 0.125rem;
+}
+
+.view-caregiver .esc-item {
+  display: flex;
+  gap: 0.6875rem;
+  align-items: flex-start;
+  position: relative;
+
+  &:not(:last-child) {
+    padding-bottom: 0.625rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0.375rem;
+      top: 0.875rem;
+      bottom: 0;
+      width: 0.0625rem;
+      background: var(--color-border);
+    }
+  }
+}
+
+.view-caregiver .esc-dot {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  position: relative;
+  z-index: 1;
+
+  &.auto    { background: var(--color-surface-high); border: 0.125rem solid var(--color-text-dim); }
+  &.notify  { background: var(--color-yellow-dim);   border: 0.125rem solid var(--color-yellow); }
+  &.resolve { background: var(--color-green-dim);    border: 0.125rem solid var(--color-green); }
+  &.contact { background: var(--color-accent-dim);   border: 0.125rem solid var(--color-accent); }
+}
+
+.view-caregiver .esc-body { flex: 1; }
+
+.view-caregiver .esc-action {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.35;
+}
+
+.view-caregiver .esc-time {
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  margin-top: 0.125rem;
+}
+
+// ---- 卡片底部狀態列 ----
+.view-caregiver .alert-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+  padding-top: 0.75rem;
+  border-top: 0.0625rem solid var(--color-border-subtle);
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  &.resolved {
+    color: var(--color-green);
+    svg { stroke: var(--color-green); }
+  }
+
+  &.pending {
+    color: var(--color-yellow);
+    svg { stroke: var(--color-yellow); }
+  }
+}
+
+// ---- 進行中警報：動作按鈕組 ----
+.view-caregiver .alert-action-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.875rem;
+  padding-top: 0.75rem;
+  border-top: 0.0625rem solid var(--color-border-subtle);
+}
+
+.view-caregiver .alert-action-btn {
+  flex: 1;
+  padding: 0.625rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  border: 0.0625rem solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  transition: background 0.18s;
+
+  &:hover { background: var(--color-surface-raised); }
+
+  &.primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+    &:hover { filter: brightness(0.92); }
+  }
+
+  &.danger {
+    background: var(--color-red-dim);
+    border-color: rgba(201, 48, 40, 0.3);
+    color: var(--color-red);
+    &:hover { background: rgba(201, 48, 40, 0.18); }
+  }
+}
+
+// ---- 空狀態 ----
+.view-caregiver .alert-empty {
+  text-align: center;
+  padding: 3rem 1.25rem;
+  color: var(--color-text-dim);
+  font-size: 0.875rem;
+  display: none;
+
+  &.visible { display: block; }
+
+  .alert-empty-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+  }
+}

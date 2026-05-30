@@ -1,11 +1,155 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=caregiver-dashboard/">
-  <title>防止孤獨死亡系統</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>守護 — 選擇角色</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .role-select-wrap {
+      width: 100%;
+      max-width: 26rem;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .role-select-brand {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .role-select-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .role-select-tagline {
+      font-size: 0.875rem;
+      color: var(--color-text-dim);
+      margin-top: 0.375rem;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+    }
+
+    .role-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.5rem 1rem;
+      background: var(--color-surface);
+      border: 0.0625rem solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: var(--color-text-primary);
+      transition: background 0.15s, border-color 0.15s, transform 0.12s;
+      cursor: pointer;
+
+      &:hover {
+        background: var(--color-surface-raised);
+        border-color: var(--color-accent);
+        transform: translateY(-0.125rem);
+      }
+    }
+
+    .role-card-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .role-card-icon.caregiver  { background: var(--color-accent-dim); }
+    .role-card-icon.elder      { background: var(--color-green-dim); }
+    .role-card-icon.social     { background: var(--color-yellow-dim); }
+    .role-card-icon.admin      { background: var(--color-red-dim); }
+
+    .role-card-name {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      text-align: center;
+    }
+
+    .role-card-desc {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .role-card-badge {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.1875rem 0.5rem;
+      border-radius: 10rem;
+      background: var(--color-border-subtle);
+      color: var(--color-text-dim);
+    }
+
+    .role-card-badge.wip {
+      background: var(--color-yellow-dim);
+      color: var(--color-yellow);
+    }
+  </style>
 </head>
-<body>
-  <p>正在跳轉，請稍候⋯ <a href="caregiver-dashboard/">點此前往</a></p>
+<body class="view-role-select">
+
+<div class="role-select-wrap">
+
+  <div class="role-select-brand">
+    <div class="role-select-logo">守護</div>
+    <div class="role-select-tagline">防止孤獨死亡照護系統</div>
+  </div>
+
+  <div class="role-grid">
+
+    <a class="role-card" href="caregiver.html">
+      <div class="role-card-icon caregiver">👨‍👩‍👧</div>
+      <div class="role-card-name">家屬 App</div>
+      <div class="role-card-desc">查看長者狀態<br>接收警報通知</div>
+      <div class="role-card-badge">完成</div>
+    </a>
+
+    <a class="role-card" href="elder.html">
+      <div class="role-card-icon elder">🧓</div>
+      <div class="role-card-name">長者端</div>
+      <div class="role-card-desc">打卡・服藥確認<br>緊急求助</div>
+      <div class="role-card-badge">完成</div>
+    </a>
+
+    <a class="role-card" href="#" style="pointer-events: none; opacity: 0.5;">
+      <div class="role-card-icon social">👷</div>
+      <div class="role-card-name">社工後台</div>
+      <div class="role-card-desc">個案管理<br>警報處理</div>
+      <div class="role-card-badge wip">開發中</div>
+    </a>
+
+    <a class="role-card" href="#" style="pointer-events: none; opacity: 0.5;">
+      <div class="role-card-icon admin">⚙️</div>
+      <div class="role-card-name">管理員</div>
+      <div class="role-card-desc">系統設定<br>帳號管理</div>
+      <div class="role-card-badge wip">開發中</div>
+    </a>
+
+  </div>
+
+</div>
+
 </body>
 </html>

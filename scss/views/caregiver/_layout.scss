@@ -1,0 +1,165 @@
+// 家屬 App 頁面骨架：App Wrapper、Top Bar、Main Content、Bottom Nav
+
+.view-caregiver .app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 5.5rem;
+}
+
+// ---- Top Bar ----
+.view-caregiver .top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.25rem 1.25rem 0.875rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(to bottom, var(--color-bg) 72%, transparent);
+}
+
+.view-caregiver .app-logo {
+  font-family: var(--font-display);
+  font-size: 1.3125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+}
+
+.view-caregiver .top-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.view-caregiver .icon-btn {
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+
+  &:hover {
+    background: var(--color-surface-raised);
+    color: var(--color-text-primary);
+  }
+
+  font-size: 1.0625rem;
+
+  svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}
+
+.view-caregiver .notif-dot {
+  position: absolute;
+  top: 0.4375rem;
+  right: 0.4375rem;
+  width: 0.4375rem;
+  height: 0.4375rem;
+  border-radius: 50%;
+  background: var(--color-red);
+  border: 0.125rem solid var(--color-bg);
+}
+
+// ---- Top Bar 內頁版本（含返回鍵）----
+.view-caregiver .top-bar--inner {
+  .top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+}
+
+.view-caregiver .page-title {
+  font-family: var(--font-ui);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+// ---- Main Content ----
+.view-caregiver .main-content {
+  padding: 0.25rem 1.125rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+// ---- Section Header（共用）----
+.view-caregiver .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6875rem;
+}
+
+.view-caregiver .section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.view-caregiver .section-link {
+  font-size: 1rem;
+  color: var(--color-accent);
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+// ---- Bottom Nav ----
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 26.875rem;
+  background: rgba(253, 246, 236, 0.92);
+  backdrop-filter: blur(1.375rem);
+  -webkit-backdrop-filter: blur(1.375rem);
+  border-top: 0.0625rem solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.625rem 0 1.75rem;
+  z-index: 100;
+}
+
+.bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  padding: 0.25rem 1.375rem;
+  transition: opacity 0.18s;
+  text-decoration: none;
+
+  i {
+    font-size: 1.3125rem;
+    color: var(--color-text-dim);
+    transition: color 0.18s;
+  }
+
+  span {
+    font-size: 0.625rem;
+    color: var(--color-text-dim);
+    transition: color 0.18s;
+  }
+
+  &.active {
+    i,
+    span { color: var(--color-accent); }
+  }
+}

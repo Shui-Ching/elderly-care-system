@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>守護 — 長者介面</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="view-elder">
+<div class="app-wrapper">
+
+  <!-- 頂部：大時鐘 + 通知鈕 -->
+  <header class="top-bar">
+    <div class="clock-display">
+      <span class="clock-time" id="clock-time">--:--</span>
+      <span class="clock-date" id="clock-date"></span>
+    </div>
+    <button class="notif-icon-btn" aria-label="通知">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+      </svg>
+    </button>
+  </header>
+
+  <main class="main-content">
+
+    <!-- 問候語 -->
+    <section class="greeting-section" aria-label="問候語">
+      <p class="greeting-name" id="greeting-name">早安，王伯伯</p>
+      <p class="greeting-weather">☀️ 今天天氣晴朗，記得多喝水</p>
+    </section>
+
+    <!-- 每日打卡 -->
+    <section aria-label="每日打卡">
+      <div class="checkin-card" id="checkin-card">
+        <div class="checkin-header">
+          <div class="checkin-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <span class="checkin-label">每日打卡</span>
+        </div>
+        <p class="checkin-title">今天還好嗎？</p>
+        <p class="checkin-desc">讓家人知道您今天平安</p>
+        <button class="checkin-btn" id="checkin-btn" onclick="doCheckin()" aria-label="每日打卡：我今天很好">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          我今天很好
+        </button>
+        <div class="checkin-result" id="checkin-result" aria-live="polite">
+          <p>打卡成功！家人已收到通知。</p>
+          <p id="checkin-time-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服藥提醒 -->
+    <section aria-label="服藥提醒">
+      <div class="medicine-card" id="medicine-card">
+        <div class="medicine-header">
+          <div class="medicine-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
+            </svg>
+          </div>
+          <span class="medicine-label">服藥提醒</span>
+        </div>
+        <p class="medicine-title">血壓藥 × 2 顆</p>
+        <div class="medicine-time-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          下午 2:00
+        </div>
+        <button class="medicine-confirm-btn" id="medicine-confirm-btn" onclick="takeMedicine()" aria-label="確認服藥：我已服藥">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          我已服藥
+        </button>
+        <div class="medicine-result" id="medicine-result" aria-live="polite">
+          <p>服藥記錄已更新！</p>
+          <p>保持健康，做得很好 👍</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 緊急求助 -->
+    <section class="sos-section" aria-label="緊急求助">
+      <!-- SOS 已觸發橫幅（預設隱藏） -->
+      <div class="sos-triggered-banner" id="sos-triggered-banner" role="alert">
+        <span class="sos-triggered-icon" aria-hidden="true">🚨</span>
+        <div class="sos-triggered-text">
+          <p>緊急警報已發出</p>
+          <p>家人和社工已收到通知，請保持鎮定</p>
+        </div>
+      </div>
+
+      <button class="sos-btn" id="sos-btn" onclick="openSosModal()" aria-label="緊急求助：按下後確認發出警報">
+        <span class="sos-icon" aria-hidden="true">🆘</span>
+        <span class="sos-label">緊急求助</span>
+        <span class="sos-sub">遇到緊急狀況，立刻通知家人</span>
+      </button>
+    </section>
+
+    <div style="height: 0.75rem;"></div>
+  </main>
+</div>
+
+<!-- SOS 確認 Modal -->
+<div class="sos-modal" id="sos-modal" role="dialog" aria-modal="true" aria-labelledby="sos-modal-title">
+  <div class="sos-modal-content">
+    <span class="sos-modal-icon" aria-hidden="true">🚨</span>
+    <p class="sos-modal-title" id="sos-modal-title">確認緊急求助？</p>
+    <p class="sos-modal-desc">將立即通知您的家人和照護人員，請確認是否真的需要幫助。</p>
+    <div class="sos-modal-actions">
+      <button class="sos-confirm-btn" onclick="confirmSOS()">確認求助</button>
+      <button class="sos-cancel-btn" onclick="closeSosModal()">我沒事，取消</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/elder-main.js"></script>
+</body>
+</html>

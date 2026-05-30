@@ -1,0 +1,191 @@
+// 長者端緊急求助按鈕 & Modal
+
+.view-elder .sos-section {
+  animation: fade-up 0.5s ease 0.3s both;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.view-elder .sos-btn {
+  width: 100%;
+  padding: 2.125rem 1.5rem;
+  border-radius: var(--radius-xl);
+  border: none;
+  background: var(--color-red);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s, transform 0.15s;
+  animation: sos-breathe 3.5s ease-in-out infinite;
+  -webkit-user-select: none;
+  user-select: none;
+
+  &:hover { background: #a62220; }
+  &:active { transform: scale(0.99); }
+
+  &.sos-triggered {
+    background: #7a1a16;
+    animation: none;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: 0.1875rem solid #fff;
+    outline-offset: 0.1875rem;
+  }
+}
+
+.view-elder .sos-icon {
+  font-size: 2.75rem;
+  line-height: 1;
+}
+
+.view-elder .sos-label {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.view-elder .sos-sub {
+  font-size: 1rem;
+  opacity: 0.82;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+// ---- SOS 已發出橫幅 ----
+.view-elder .sos-triggered-banner {
+  background: var(--color-red-dim);
+  border: 0.0625rem solid rgba(201, 48, 40, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  display: none;
+  align-items: center;
+  gap: 0.875rem;
+  animation: fade-up 0.4s ease both;
+
+  &.visible { display: flex; }
+}
+
+.view-elder .sos-triggered-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.view-elder .sos-triggered-text {
+  p:first-child {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-red);
+  }
+
+  p:last-child {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.125rem;
+    line-height: 1.45;
+  }
+}
+
+// ---- 確認 Modal ----
+.view-elder .sos-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 26, 8, 0.55);
+  backdrop-filter: blur(0.375rem);
+  -webkit-backdrop-filter: blur(0.375rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: all;
+
+    .sos-modal-content {
+      transform: scale(1);
+    }
+  }
+}
+
+.view-elder .sos-modal-content {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: 2.125rem 1.875rem 1.875rem;
+  max-width: 22rem;
+  width: 100%;
+  text-align: center;
+  transform: scale(0.94);
+  transition: transform 0.22s;
+}
+
+.view-elder .sos-modal-icon {
+  font-size: 3.25rem;
+  display: block;
+  margin-bottom: 0.875rem;
+}
+
+.view-elder .sos-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.view-elder .sos-modal-desc {
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.875rem;
+}
+
+.view-elder .sos-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.view-elder .sos-confirm-btn {
+  width: 100%;
+  padding: 1.1875rem;
+  border-radius: var(--radius-lg);
+  border: none;
+  background: var(--color-red);
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+
+  &:hover { background: #a62220; }
+}
+
+.view-elder .sos-cancel-btn {
+  width: 100%;
+  padding: 1.125rem;
+  border-radius: var(--radius-lg);
+  border: 0.0625rem solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 1.1875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s;
+
+  &:hover { background: var(--color-surface-raised); }
+}

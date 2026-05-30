@@ -1,0 +1,35 @@
+// 入口：按順序載入所有 partial
+// 各 partial 無對外 SCSS 成員，一律以 as * 避免命名空間衝突
+
+// 基礎層
+@use 'tokens' as *;
+@use 'reset' as *;
+@use 'animations' as *;
+@use 'base' as *;
+
+// 家屬 App（view-caregiver）
+@use 'views/caregiver/layout' as *;
+@use 'views/caregiver/greeting' as *;
+@use 'views/caregiver/elder-card' as *;
+@use 'views/caregiver/quick-actions' as *;
+@use 'views/caregiver/sensor' as *;
+@use 'views/caregiver/timeline' as *;
+@use 'views/caregiver/alerts' as *;
+@use 'views/caregiver/alerts-page' as *;
+@use 'views/caregiver/activity-page' as *;
+@use 'views/caregiver/profile-page' as *;
+
+// 長者端（view-elder）
+@use 'views/elder/layout' as *;
+@use 'views/elder/clock' as *;
+@use 'views/elder/greeting' as *;
+@use 'views/elder/checkin' as *;
+@use 'views/elder/medicine' as *;
+@use 'views/elder/sos' as *;
+
+// 社工後台（view-social-worker）
+@use 'views/social-worker/layout' as *;
+@use 'views/social-worker/sidebar' as *;
+@use 'views/social-worker/header' as *;
+@use 'views/social-worker/dashboard' as *;
+ 

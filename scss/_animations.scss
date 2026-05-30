@@ -1,0 +1,39 @@
+// 共用 Keyframe 動畫（所有角色）
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(1.125rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.88); opacity: 0.55; }
+  100% { transform: scale(1.28); opacity: 0; }
+}
+
+@keyframes dot-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-0.75rem); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+// 長者端：SOS 呼吸脈衝
+@keyframes sos-breathe {
+  0%, 100% { box-shadow: 0 0.5rem 2rem rgba(201, 48, 40, 0.35); }
+  50%       { box-shadow: 0 0.5rem 3rem rgba(201, 48, 40, 0.60); }
+}
+
+// 長者端：打卡成功彈跳
+@keyframes checkin-bounce {
+  0%, 100% { transform: scale(1); }
+  40%       { transform: scale(1.035); }
+  70%       { transform: scale(0.98); }
+}

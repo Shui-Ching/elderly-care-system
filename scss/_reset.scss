@@ -1,0 +1,52 @@
+// Reset & 全域基礎設定
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  // 繼承瀏覽器使用者字級設定，確保無障礙縮放正常運作
+  font-size: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// 全域 focus 樣式（無障礙）
+button:focus-visible {
+  outline: 0.1875rem solid var(--color-accent);
+  outline-offset: 0.125rem;
+}
+
+// 自定義捲軸
+::-webkit-scrollbar        { width: 0.25rem; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--color-text-dim); border-radius: 0.125rem; }

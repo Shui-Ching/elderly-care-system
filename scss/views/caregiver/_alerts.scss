@@ -1,0 +1,58 @@
+// 家屬端首頁近期警報列表
+
+.view-caregiver .alert-section {
+  animation: fade-up 0.45s ease both;
+  animation-delay: 0.36s;
+}
+
+.view-caregiver .alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5625rem;
+}
+
+.view-caregiver .alert-item {
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.8125rem 0.9375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+// 左側嚴重度色條
+.view-caregiver .alert-bar {
+  width: 0.1875rem;
+  height: 2.25rem;
+  border-radius: 0.125rem;
+  flex-shrink: 0;
+
+  &.green  { background: var(--color-green); }
+  &.yellow { background: var(--color-yellow); }
+  &.red    { background: var(--color-red); }
+}
+
+.view-caregiver .alert-content { flex: 1; }
+
+.view-caregiver .alert-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 0.125rem;
+
+  .alert-icon-warn { color: var(--color-yellow); font-size: 0.9em; }
+}
+
+.view-caregiver .alert-desc {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+  line-height: 1.45;
+}
+
+.view-caregiver .alert-time {
+  font-size: 1rem;
+  color: var(--color-text-dim);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
