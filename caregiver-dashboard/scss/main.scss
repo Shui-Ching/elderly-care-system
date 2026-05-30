@@ -10,6 +10,8 @@
 @use 'quick-actions'; // 快速操作按鈕列（撥打、訊息、緊急等）
 @use 'sensor';       // 感測器狀態列（心率、體溫、活動等數值卡）
 @use 'timeline';     // 活動時間軸
-@use 'alerts';        // 近期警報列表（首頁用）
-@use 'alerts-page';   // 警報頁面完整元件
- 
+@use 'alerts';         // 近期警報列表（首頁用）
+@use 'alerts-page';    // 警報頁面完整元件
+@use 'activity-page';  // 活動記錄頁面完整元件
+@use 'profile-page';   // 我的頁面完整元件
+  

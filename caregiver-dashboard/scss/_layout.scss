@@ -52,10 +52,7 @@
     color: var(--color-text-primary);
   }
 
-  svg {
-    width: 17px;
-    height: 17px;
-  }
+  font-size: 17px;
 }
 
 .notif-dot {
@@ -126,9 +123,8 @@
   padding: 4px 22px;
   transition: opacity 0.18s;
 
-  svg {
-    width: 21px;
-    height: 21px;
+  i {
+    font-size: 21px;
     color: var(--color-text-dim);
     transition: color 0.18s;
   }
@@ -140,7 +136,7 @@
   }
 
   &.active {
-    svg,
+    i,
     span { color: var(--color-accent); }
   }
 }

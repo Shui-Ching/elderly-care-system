@@ -40,6 +40,8 @@
   font-weight: 500;
   color: var(--color-text-primary);
   margin-bottom: 2px;
+
+  .alert-icon-warn { color: var(--color-yellow); font-size: 0.9em; }
 }
 
 .alert-desc {

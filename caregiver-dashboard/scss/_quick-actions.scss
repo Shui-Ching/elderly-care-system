@@ -39,10 +39,7 @@
   align-items: center;
   justify-content: center;
 
-  svg {
-    width: 19px;
-    height: 19px;
-  }
+  font-size: 19px;
 }
 
 .action-btn.call  .action-icon { background: var(--color-green-dim);  color: var(--color-green);  }
