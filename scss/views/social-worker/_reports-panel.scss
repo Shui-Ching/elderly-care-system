@@ -1,0 +1,282 @@
+// 社工後台 — 月報產出面板
+
+// ─── 月份切換 ────────────────────────────────────────────────────
+.view-social-worker .report-month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+
+  .rmn-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .rmn-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .rmn-btn {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    border: 0.0625rem solid var(--color-border);
+    transition: background 0.12s;
+
+    &:hover { background: var(--color-surface-raised); }
+  }
+
+  .rmn-month {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    min-width: 7rem;
+    text-align: center;
+  }
+
+  .export-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: var(--radius-md);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.12s;
+
+    &:hover { opacity: 0.85; }
+  }
+}
+
+// ─── 統計卡片列 ──────────────────────────────────────────────────
+.view-social-worker .report-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+// ─── 圖表雙欄 ────────────────────────────────────────────────────
+.view-social-worker .report-charts {
+  display: grid;
+  grid-template-columns: 1fr 18rem;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  align-items: start;
+}
+
+// ─── 長條圖（CSS-only）────────────────────────────────────────────
+.view-social-worker .bar-chart-panel {
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.view-social-worker .bar-chart-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.view-social-worker .bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+
+  .bar-label {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+    min-width: 3.5rem;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 1.5rem;
+    background: var(--color-bg);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent-dim), var(--color-accent));
+    border-radius: var(--radius-sm);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+
+    &.fill-low    { background: linear-gradient(90deg, var(--color-green-dim), var(--color-green)); }
+    &.fill-medium { background: linear-gradient(90deg, var(--color-accent-dim), var(--color-accent)); }
+    &.fill-high   { background: linear-gradient(90deg, var(--color-red-dim), var(--color-red)); }
+  }
+
+  .bar-value {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .bar-count {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    min-width: 1.5rem;
+    flex-shrink: 0;
+  }
+}
+
+// ─── 圓環圖（SVG）────────────────────────────────────────────────
+.view-social-worker .donut-panel {
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.view-social-worker .donut-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.view-social-worker .donut-wrap {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 1.2;
+
+    .donut-total {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .donut-sub {
+      font-size: 0.6875rem;
+      color: var(--color-text-dim);
+    }
+  }
+}
+
+.view-social-worker .donut-legend {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.view-social-worker .legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  .legend-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .legend-label {
+    flex: 1;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+  }
+
+  .legend-count {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .legend-pct {
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+    min-width: 2.5rem;
+    text-align: right;
+  }
+}
+
+// ─── 趨勢表格 ────────────────────────────────────────────────────
+.view-social-worker .report-table-panel {
+  background: var(--color-surface);
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.view-social-worker .report-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--color-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.625rem 1.375rem;
+    background: var(--color-bg);
+    border-bottom: 0.0625rem solid var(--color-border-subtle);
+    text-align: left;
+
+    &:not(:first-child) { text-align: center; }
+  }
+
+  td {
+    padding: 0.75rem 1.375rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    border-bottom: 0.0625rem solid var(--color-border-subtle);
+    text-align: left;
+
+    &:not(:first-child) { text-align: center; }
+
+    &.td-name { font-weight: 500; color: var(--color-text-primary); }
+    &.td-num  { font-family: var(--font-display); font-weight: 600; color: var(--color-text-primary); }
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--color-surface-raised); }
+
+  .trend-up   { color: var(--color-green); font-size: 0.75rem; }
+  .trend-down { color: var(--color-red);   font-size: 0.75rem; }
+  .trend-flat { color: var(--color-text-dim); font-size: 0.75rem; }
+}

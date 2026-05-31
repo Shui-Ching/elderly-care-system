@@ -103,6 +103,9 @@
     <!-- 頁面主內容 -->
     <main class="page-content">
 
+      <!-- ══ 面板：總覽儀表板 ═══════════════════════════════════════ -->
+      <div class="page-panel" data-panel="dashboard">
+
       <!-- 版頁標題 -->
       <div class="page-heading">
         <div class="page-heading-title">早安，佳慧！今日有 3 件警報待處理。</div>
@@ -316,6 +319,737 @@
         </div><!-- /dashboard-right -->
 
       </div><!-- /dashboard-grid -->
+
+      </div><!-- /page-panel dashboard -->
+
+      <!-- ══ 面板：我的長者 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="elders" hidden>
+
+        <div class="page-heading">
+          <div class="page-heading-title">我的長者</div>
+          <div class="page-heading-sub">目前管轄 12 位長者，3 位狀態需要關注</div>
+        </div>
+
+        <div class="panel">
+
+          <!-- 工具列 -->
+          <div class="panel-toolbar">
+            <div class="search-box">
+              <span class="search-icon"><i class="bi bi-search"></i></span>
+              <input type="text" placeholder="搜尋長者姓名、地址…">
+            </div>
+            <div class="filter-tabs" data-filter-group>
+              <button class="filter-tab-btn active" data-filter data-filter-class="active">全部 <span class="tab-count">12</span></button>
+              <button class="filter-tab-btn" data-filter data-filter-class="active-danger">緊急 <span class="tab-count">1</span></button>
+              <button class="filter-tab-btn" data-filter data-filter-class="active-warn">待確認 <span class="tab-count">2</span></button>
+              <button class="filter-tab-btn" data-filter data-filter-class="active-ok">正常 <span class="tab-count">9</span></button>
+            </div>
+            <button class="add-btn"><i class="bi bi-person-plus"></i> 新增案件</button>
+          </div>
+
+          <!-- 表頭 -->
+          <div class="elders-table-head">
+            <span></span>
+            <span></span>
+            <span>姓名</span>
+            <span style="text-align:center">風險指數</span>
+            <span style="text-align:center">最後聯繫</span>
+            <span style="text-align:center">狀態</span>
+            <span></span>
+          </div>
+
+          <!-- 長者列表 -->
+          <div class="elders-list">
+
+            <div class="elder-card-row">
+              <div class="elder-card-bar bar-danger"></div>
+              <div class="elder-avatar-sm">王</div>
+              <div class="elder-card-meta">
+                <div class="elder-card-name">王美華 女士</div>
+                <div class="elder-card-info">75 歲・台北市中正區・獨居</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num score-high">82</div>
+                <div class="stat-sub">風險分數</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num" style="font-size:0.875rem;color:var(--color-text-primary)">今日 07:50</div>
+                <div class="stat-sub">血壓異常通報</div>
+              </div>
+              <div><span class="status-badge status-danger">緊急</span></div>
+              <div class="elder-card-actions">
+                <button class="action-icon-btn btn-call" title="電話聯繫"><i class="bi bi-telephone"></i></button>
+                <button class="action-icon-btn btn-visit" title="排定訪視"><i class="bi bi-calendar-plus"></i></button>
+                <button class="detail-link-btn">查看詳情</button>
+              </div>
+            </div>
+
+            <div class="elder-card-row">
+              <div class="elder-card-bar bar-warn"></div>
+              <div class="elder-avatar-sm">林</div>
+              <div class="elder-card-meta">
+                <div class="elder-card-name">林阿明 先生</div>
+                <div class="elder-card-info">82 歲・台北市信義區・獨居</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num score-mid">61</div>
+                <div class="stat-sub">風險分數</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num" style="font-size:0.875rem;color:var(--color-text-primary)">昨日 17:15</div>
+                <div class="stat-sub">未完成打卡</div>
+              </div>
+              <div><span class="status-badge status-warn">待確認</span></div>
+              <div class="elder-card-actions">
+                <button class="action-icon-btn btn-call" title="電話聯繫"><i class="bi bi-telephone"></i></button>
+                <button class="action-icon-btn btn-visit" title="排定訪視"><i class="bi bi-calendar-plus"></i></button>
+                <button class="detail-link-btn">查看詳情</button>
+              </div>
+            </div>
+
+            <div class="elder-card-row">
+              <div class="elder-card-bar bar-warn"></div>
+              <div class="elder-avatar-sm">黃</div>
+              <div class="elder-card-meta">
+                <div class="elder-card-name">黃春嬌 女士</div>
+                <div class="elder-card-info">79 歲・台北市萬華區・與子同住</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num score-mid">54</div>
+                <div class="stat-sub">風險分數</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num" style="font-size:0.875rem;color:var(--color-text-primary)">昨日 20:30</div>
+                <div class="stat-sub">家屬回報</div>
+              </div>
+              <div><span class="status-badge status-warn">待確認</span></div>
+              <div class="elder-card-actions">
+                <button class="action-icon-btn btn-call" title="電話聯繫"><i class="bi bi-telephone"></i></button>
+                <button class="action-icon-btn btn-visit" title="排定訪視"><i class="bi bi-calendar-plus"></i></button>
+                <button class="detail-link-btn">查看詳情</button>
+              </div>
+            </div>
+
+            <div class="elder-card-row">
+              <div class="elder-card-bar bar-ok"></div>
+              <div class="elder-avatar-sm">陳</div>
+              <div class="elder-card-meta">
+                <div class="elder-card-name">陳秀英 女士</div>
+                <div class="elder-card-info">78 歲・台北市大安區・獨居</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num score-low">28</div>
+                <div class="stat-sub">風險分數</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num" style="font-size:0.875rem;color:var(--color-text-primary)">今日 08:32</div>
+                <div class="stat-sub">例行打卡</div>
+              </div>
+              <div><span class="status-badge status-ok">正常</span></div>
+              <div class="elder-card-actions">
+                <button class="action-icon-btn btn-call" title="電話聯繫"><i class="bi bi-telephone"></i></button>
+                <button class="action-icon-btn btn-visit" title="排定訪視"><i class="bi bi-calendar-plus"></i></button>
+                <button class="detail-link-btn">查看詳情</button>
+              </div>
+            </div>
+
+            <div class="elder-card-row">
+              <div class="elder-card-bar bar-ok"></div>
+              <div class="elder-avatar-sm">張</div>
+              <div class="elder-card-meta">
+                <div class="elder-card-name">張德財 先生</div>
+                <div class="elder-card-info">69 歲・台北市松山區・與配偶同住</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num score-low">22</div>
+                <div class="stat-sub">風險分數</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num" style="font-size:0.875rem;color:var(--color-text-primary)">今日 09:10</div>
+                <div class="stat-sub">例行打卡</div>
+              </div>
+              <div><span class="status-badge status-ok">正常</span></div>
+              <div class="elder-card-actions">
+                <button class="action-icon-btn btn-call" title="電話聯繫"><i class="bi bi-telephone"></i></button>
+                <button class="action-icon-btn btn-visit" title="排定訪視"><i class="bi bi-calendar-plus"></i></button>
+                <button class="detail-link-btn">查看詳情</button>
+              </div>
+            </div>
+
+            <div class="elder-card-row">
+              <div class="elder-card-bar bar-ok"></div>
+              <div class="elder-avatar-sm">李</div>
+              <div class="elder-card-meta">
+                <div class="elder-card-name">李月珍 女士</div>
+                <div class="elder-card-info">71 歲・台北市文山區・獨居</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num score-low">18</div>
+                <div class="stat-sub">風險分數</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num" style="font-size:0.875rem;color:var(--color-text-primary)">今日 08:05</div>
+                <div class="stat-sub">例行打卡</div>
+              </div>
+              <div><span class="status-badge status-ok">正常</span></div>
+              <div class="elder-card-actions">
+                <button class="action-icon-btn btn-call" title="電話聯繫"><i class="bi bi-telephone"></i></button>
+                <button class="action-icon-btn btn-visit" title="排定訪視"><i class="bi bi-calendar-plus"></i></button>
+                <button class="detail-link-btn">查看詳情</button>
+              </div>
+            </div>
+
+            <div class="elder-card-row">
+              <div class="elder-card-bar bar-ok"></div>
+              <div class="elder-avatar-sm">吳</div>
+              <div class="elder-card-meta">
+                <div class="elder-card-name">吳金龍 先生</div>
+                <div class="elder-card-info">73 歲・台北市北投區・與子同住</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num score-low">15</div>
+                <div class="stat-sub">風險分數</div>
+              </div>
+              <div class="elder-card-stat">
+                <div class="stat-num" style="font-size:0.875rem;color:var(--color-text-primary)">今日 07:45</div>
+                <div class="stat-sub">例行打卡</div>
+              </div>
+              <div><span class="status-badge status-ok">正常</span></div>
+              <div class="elder-card-actions">
+                <button class="action-icon-btn btn-call" title="電話聯繫"><i class="bi bi-telephone"></i></button>
+                <button class="action-icon-btn btn-visit" title="排定訪視"><i class="bi bi-calendar-plus"></i></button>
+                <button class="detail-link-btn">查看詳情</button>
+              </div>
+            </div>
+
+          </div><!-- /elders-list -->
+
+          <div class="elders-footer">
+            <span class="elders-count">顯示 7 / 12 筆・依風險排序</span>
+          </div>
+
+        </div><!-- /panel -->
+
+      </div><!-- /page-panel elders -->
+
+      <!-- ══ 面板：警報中心 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="alerts" hidden>
+
+        <div class="page-heading">
+          <div class="page-heading-title">警報中心</div>
+          <div class="page-heading-sub">今日共 3 件待處理警報，請依優先順序處理</div>
+        </div>
+
+        <!-- 摘要橫幅 -->
+        <div class="alert-summary-bar">
+          <div class="asb-icon"><i class="bi bi-exclamation-octagon-fill"></i></div>
+          <div class="asb-body">
+            <div class="asb-count">3</div>
+            <div class="asb-label">件未處理警報 — 最緊急：王美華 女士（血壓異常）</div>
+          </div>
+          <div class="asb-time">最後更新 07:50</div>
+        </div>
+
+        <!-- 篩選列 -->
+        <div class="alert-filter-row" data-filter-group>
+          <button class="filter-tab-btn active" data-filter data-filter-class="active">全部 <span class="tab-count">3</span></button>
+          <button class="filter-tab-btn" data-filter data-filter-class="active-danger">緊急 <span class="tab-count">1</span></button>
+          <button class="filter-tab-btn" data-filter data-filter-class="active-warn">待確認 <span class="tab-count">2</span></button>
+          <button class="filter-tab-btn" data-filter data-filter-class="active-ok">已處理 <span class="tab-count">0</span></button>
+        </div>
+
+        <!-- 警報卡 -->
+        <div class="alert-feed-sw">
+
+          <div class="alert-card-sw level-red">
+            <div class="ac-header">
+              <div class="ac-level-icon icon-red"><i class="bi bi-heart-pulse-fill"></i></div>
+              <div class="ac-body">
+                <div class="ac-who">王美華 女士・75 歲・台北市中正區</div>
+                <div class="ac-what">血壓感測異常：收縮壓 158 mmHg，超過設定閾值 140 mmHg。穿戴裝置回報心率 92 bpm，持續偏高。</div>
+                <div class="ac-meta">
+                  <span class="ac-time"><i class="bi bi-clock"></i> 今日 07:50</span>
+                  <span class="ac-badge badge-red">🔴 緊急</span>
+                </div>
+              </div>
+            </div>
+            <div class="ac-footer">
+              <div class="ac-assignee">負責人：<b>林佳慧</b>（本人）</div>
+              <div class="ac-actions">
+                <button class="ac-btn ac-btn-ghost">記錄備註</button>
+                <button class="ac-btn ac-btn-ghost">指派他人</button>
+                <button class="ac-btn ac-btn-primary">立即聯繫</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-card-sw level-yellow">
+            <div class="ac-header">
+              <div class="ac-level-icon icon-yellow"><i class="bi bi-person-dash"></i></div>
+              <div class="ac-body">
+                <div class="ac-who">林阿明 先生・82 歲・台北市信義區</div>
+                <div class="ac-what">今日尚未完成早安打卡（通常於 08:00–09:00 完成）。系統已自動撥打電話，無人接聽。</div>
+                <div class="ac-meta">
+                  <span class="ac-time"><i class="bi bi-clock"></i> 今日 09:00</span>
+                  <span class="ac-badge badge-yellow">🟡 待確認</span>
+                </div>
+              </div>
+            </div>
+            <div class="ac-footer">
+              <div class="ac-assignee">負責人：<b>林佳慧</b>（本人）</div>
+              <div class="ac-actions">
+                <button class="ac-btn ac-btn-ghost">記錄備註</button>
+                <button class="ac-btn ac-btn-primary">電話聯繫</button>
+                <button class="ac-btn ac-btn-resolve">標記正常</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-card-sw level-yellow">
+            <div class="ac-header">
+              <div class="ac-level-icon icon-yellow"><i class="bi bi-telephone-x"></i></div>
+              <div class="ac-body">
+                <div class="ac-who">陳秀英 女士・78 歲・台北市大安區</div>
+                <div class="ac-what">本週家屬聯繫次數不足（本週 0 次，建議最低 2 次）。需確認家屬聯繫狀況及長者心理狀態。</div>
+                <div class="ac-meta">
+                  <span class="ac-time"><i class="bi bi-clock"></i> 昨日 18:30</span>
+                  <span class="ac-badge badge-yellow">🟡 待確認</span>
+                </div>
+              </div>
+            </div>
+            <div class="ac-footer">
+              <div class="ac-assignee">負責人：<b>林佳慧</b>（本人）</div>
+              <div class="ac-actions">
+                <button class="ac-btn ac-btn-ghost">記錄備註</button>
+                <button class="ac-btn ac-btn-primary">通知家屬</button>
+                <button class="ac-btn ac-btn-resolve">標記已跟進</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /alert-feed-sw -->
+
+      </div><!-- /page-panel alerts -->
+
+      <!-- ══ 面板：探訪紀錄 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="visits" hidden>
+
+        <div class="page-heading" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+          <div>
+            <div class="page-heading-title">探訪紀錄</div>
+            <div class="page-heading-sub">本月已完成 8 次探訪，目標 10 次</div>
+          </div>
+          <button class="add-btn"><i class="bi bi-plus-lg"></i> 新增探訪</button>
+        </div>
+
+        <div class="visits-layout">
+
+          <!-- 月曆 -->
+          <div class="calendar-panel">
+            <div class="cal-header">
+              <button class="cal-nav-btn" id="cal-prev"><i class="bi bi-chevron-left"></i></button>
+              <span class="cal-month" id="cal-month-label">2026 年 5 月</span>
+              <button class="cal-nav-btn" id="cal-next"><i class="bi bi-chevron-right"></i></button>
+            </div>
+            <div class="cal-weekdays">
+              <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+            </div>
+            <div class="cal-grid" id="cal-grid"></div>
+          </div>
+
+          <!-- 右側日程 -->
+          <div class="day-detail-panel">
+
+            <div class="day-detail-header">
+              <div class="day-detail-date" id="day-detail-date">2026 年 5 月 30 日</div>
+              <div class="day-detail-sub" id="day-detail-sub">星期六</div>
+            </div>
+
+            <div class="day-visits-panel">
+              <div class="panel-head">
+                <span class="panel-title">今日行程</span>
+                <span class="panel-action">新增</span>
+              </div>
+
+              <div class="day-visit-item">
+                <span class="dvi-time">09:30</span>
+                <div class="dvi-line"></div>
+                <div class="dvi-body">
+                  <div class="dvi-name">李月珍 — 例行關懷電話</div>
+                  <div class="dvi-type">文山區・電話聯繫</div>
+                </div>
+                <span class="dvi-tag tag-done">已完成</span>
+              </div>
+
+              <div class="day-visit-item">
+                <span class="dvi-time">11:00</span>
+                <div class="dvi-line"></div>
+                <div class="dvi-body">
+                  <div class="dvi-name">王美華 — 緊急到宅訪視</div>
+                  <div class="dvi-type">中正區・到宅服務</div>
+                </div>
+                <span class="dvi-tag tag-urgent">緊急</span>
+              </div>
+
+              <div class="day-visit-item">
+                <span class="dvi-time">14:00</span>
+                <div class="dvi-line"></div>
+                <div class="dvi-body">
+                  <div class="dvi-name">林阿明 — 月度關懷訪視</div>
+                  <div class="dvi-type">信義區・到宅服務</div>
+                </div>
+                <span class="dvi-tag tag-upcoming">即將到來</span>
+              </div>
+
+            </div>
+
+            <button class="add-visit-btn">
+              <i class="bi bi-plus-circle"></i> 為此日新增探訪
+            </button>
+
+          </div><!-- /day-detail-panel -->
+
+        </div><!-- /visits-layout -->
+
+      </div><!-- /page-panel visits -->
+
+      <!-- ══ 面板：月報產出 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="reports" hidden>
+
+        <!-- 月份導覽 -->
+        <div class="report-month-nav">
+          <div class="rmn-title">月報產出</div>
+          <div class="rmn-controls">
+            <button class="rmn-btn" id="report-prev"><i class="bi bi-chevron-left"></i></button>
+            <span class="rmn-month" id="report-month-label">2026 年 5 月</span>
+            <button class="rmn-btn" id="report-next"><i class="bi bi-chevron-right"></i></button>
+            <button class="export-btn"><i class="bi bi-download"></i> 匯出報表</button>
+          </div>
+        </div>
+
+        <!-- 統計卡片 -->
+        <div class="report-stats">
+          <div class="stat-card stat-accent">
+            <div class="stat-icon"><i class="bi bi-calendar-check-fill"></i></div>
+            <div class="stat-value">8</div>
+            <div class="stat-label">本月探訪次數</div>
+            <div class="stat-delta"><i class="bi bi-arrow-up-short"></i> 較上月 +2 次</div>
+          </div>
+          <div class="stat-card stat-green">
+            <div class="stat-icon"><i class="bi bi-check-circle-fill"></i></div>
+            <div class="stat-value">15</div>
+            <div class="stat-label">已解除警報</div>
+            <div class="stat-delta"><i class="bi bi-arrow-up-short"></i> 解除率 83%</div>
+          </div>
+          <div class="stat-card stat-blue">
+            <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">服務長者人數</div>
+            <div class="stat-delta"><i class="bi bi-person-plus"></i> 本月新增 1 人</div>
+          </div>
+          <div class="stat-card stat-red">
+            <div class="stat-icon"><i class="bi bi-hourglass-split"></i></div>
+            <div class="stat-value">3</div>
+            <div class="stat-label">待處理警報</div>
+            <div class="stat-delta"><i class="bi bi-clock"></i> 最舊 2 小時前</div>
+          </div>
+        </div>
+
+        <!-- 圖表雙欄 -->
+        <div class="report-charts">
+
+          <!-- 長條圖：各長者探訪次數 -->
+          <div class="bar-chart-panel">
+            <div class="panel-head">
+              <span class="panel-title">各長者探訪次數</span>
+            </div>
+            <div class="bar-chart-body">
+
+              <div class="bar-row">
+                <span class="bar-label">陳秀英</span>
+                <div class="bar-track"><div class="bar-fill fill-medium" style="width:80%"><span class="bar-value">4 次</span></div></div>
+                <span class="bar-count">4</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">王美華</span>
+                <div class="bar-track"><div class="bar-fill fill-high" style="width:60%"><span class="bar-value">3 次</span></div></div>
+                <span class="bar-count">3</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">李月珍</span>
+                <div class="bar-track"><div class="bar-fill fill-medium" style="width:60%"><span class="bar-value">3 次</span></div></div>
+                <span class="bar-count">3</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">林阿明</span>
+                <div class="bar-track"><div class="bar-fill fill-medium" style="width:40%"><span class="bar-value">2 次</span></div></div>
+                <span class="bar-count">2</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">張德財</span>
+                <div class="bar-track"><div class="bar-fill fill-low" style="width:20%"><span class="bar-value">1 次</span></div></div>
+                <span class="bar-count">1</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">黃春嬌</span>
+                <div class="bar-track"><div class="bar-fill fill-medium" style="width:40%"><span class="bar-value">2 次</span></div></div>
+                <span class="bar-count">2</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">吳金龍</span>
+                <div class="bar-track"><div class="bar-fill fill-low" style="width:20%"><span class="bar-value">1 次</span></div></div>
+                <span class="bar-count">1</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 圓環圖：案件狀態分佈 -->
+          <div class="donut-panel">
+            <div class="panel-head">
+              <span class="panel-title">案件狀態分佈</span>
+            </div>
+            <div class="donut-body">
+              <div class="donut-wrap">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <!-- 正常 9/12 = 75% → stroke-dasharray: 75 25 offset: 0 -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="var(--color-green)" stroke-width="12"
+                    stroke-dasharray="188.5 62.8" stroke-dashoffset="0"/>
+                  <!-- 待確認 2/12 = 16.6% → 41.9 208.9, offset: -188.5 -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="var(--color-yellow)" stroke-width="12"
+                    stroke-dasharray="41.9 209.0" stroke-dashoffset="-188.5"/>
+                  <!-- 緊急 1/12 = 8.3% → 20.9 230 offset: -230.4 -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="var(--color-red)" stroke-width="12"
+                    stroke-dasharray="20.9 230.0" stroke-dashoffset="-230.4"/>
+                </svg>
+                <div class="donut-center">
+                  <div class="donut-total">12</div>
+                  <div class="donut-sub">總案件</div>
+                </div>
+              </div>
+              <div class="donut-legend">
+                <div class="legend-item">
+                  <span class="legend-dot" style="background:var(--color-green)"></span>
+                  <span class="legend-label">正常</span>
+                  <span class="legend-count">9</span>
+                  <span class="legend-pct">75%</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-dot" style="background:var(--color-yellow)"></span>
+                  <span class="legend-label">待確認</span>
+                  <span class="legend-count">2</span>
+                  <span class="legend-pct">17%</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-dot" style="background:var(--color-red)"></span>
+                  <span class="legend-label">緊急</span>
+                  <span class="legend-count">1</span>
+                  <span class="legend-pct">8%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /report-charts -->
+
+        <!-- 趨勢表格 -->
+        <div class="report-table-panel">
+          <div class="panel-head">
+            <span class="panel-title">近六個月趨勢</span>
+          </div>
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>月份</th>
+                <th>探訪次數</th>
+                <th>警報件數</th>
+                <th>解除率</th>
+                <th>新增案件</th>
+                <th>趨勢</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-name">2026 年 5 月</td>
+                <td class="td-num">8</td>
+                <td class="td-num">18</td>
+                <td>83%</td>
+                <td class="td-num">1</td>
+                <td><span class="trend-up"><i class="bi bi-arrow-up-short"></i> 上升</span></td>
+              </tr>
+              <tr>
+                <td class="td-name">2026 年 4 月</td>
+                <td class="td-num">6</td>
+                <td class="td-num">14</td>
+                <td>79%</td>
+                <td class="td-num">0</td>
+                <td><span class="trend-flat"><i class="bi bi-dash"></i> 持平</span></td>
+              </tr>
+              <tr>
+                <td class="td-name">2026 年 3 月</td>
+                <td class="td-num">7</td>
+                <td class="td-num">22</td>
+                <td>91%</td>
+                <td class="td-num">2</td>
+                <td><span class="trend-down"><i class="bi bi-arrow-down-short"></i> 下降</span></td>
+              </tr>
+              <tr>
+                <td class="td-name">2026 年 2 月</td>
+                <td class="td-num">5</td>
+                <td class="td-num">11</td>
+                <td>100%</td>
+                <td class="td-num">0</td>
+                <td><span class="trend-up"><i class="bi bi-arrow-up-short"></i> 上升</span></td>
+              </tr>
+              <tr>
+                <td class="td-name">2026 年 1 月</td>
+                <td class="td-num">9</td>
+                <td class="td-num">16</td>
+                <td>88%</td>
+                <td class="td-num">1</td>
+                <td><span class="trend-flat"><i class="bi bi-dash"></i> 持平</span></td>
+              </tr>
+              <tr>
+                <td class="td-name">2025 年 12 月</td>
+                <td class="td-num">8</td>
+                <td class="td-num">19</td>
+                <td>84%</td>
+                <td class="td-num">3</td>
+                <td><span class="trend-up"><i class="bi bi-arrow-up-short"></i> 上升</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /page-panel reports -->
+
+      <!-- ══ 面板：系統設定 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="settings" hidden>
+
+        <div class="page-heading">
+          <div class="page-heading-title">系統設定</div>
+          <div class="page-heading-sub">管理您的帳號資訊與系統偏好</div>
+        </div>
+
+        <div class="settings-layout">
+
+          <!-- 左欄 -->
+          <div class="settings-col">
+
+            <!-- 個人資訊 -->
+            <div class="settings-section">
+              <div class="settings-section-head">個人資訊</div>
+              <div class="profile-card-sw">
+                <div class="profile-avatar-lg">林</div>
+                <div class="profile-info-sw">
+                  <div class="profile-name-sw">林佳慧</div>
+                  <div class="profile-role-sw">社工師・大安區督導組</div>
+                  <div class="profile-id-sw">員工編號 SW-2024-0047</div>
+                </div>
+                <button class="edit-profile-btn">編輯資訊</button>
+              </div>
+              <div class="settings-field">
+                <div class="field-label">電子郵件<div class="field-sub">登入帳號</div></div>
+                <div class="field-value">jiahui.lin@care.gov.tw</div>
+              </div>
+              <div class="settings-field">
+                <div class="field-label">聯絡電話<div class="field-sub">緊急聯絡用</div></div>
+                <div class="field-value">0912-345-678</div>
+              </div>
+              <div class="settings-field">
+                <div class="field-label">所屬單位</div>
+                <div class="field-value">台北市大安社會局</div>
+              </div>
+            </div>
+
+            <!-- 通知設定 -->
+            <div class="settings-section">
+              <div class="settings-section-head">通知偏好</div>
+
+              <div class="settings-field">
+                <div class="field-label">🔴 緊急警報<div class="field-sub">立即推播通知</div></div>
+                <label class="toggle-wrap">
+                  <input class="toggle-input" type="checkbox" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-field">
+                <div class="field-label">🟡 待確認警報<div class="field-sub">30 分鐘未處理時提醒</div></div>
+                <label class="toggle-wrap">
+                  <input class="toggle-input" type="checkbox" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-field">
+                <div class="field-label">📅 每日探訪提醒<div class="field-sub">08:00 推播當日行程</div></div>
+                <label class="toggle-wrap">
+                  <input class="toggle-input" type="checkbox" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+              <div class="settings-field">
+                <div class="field-label">📊 月報提醒<div class="field-sub">每月最後一天提醒產出報表</div></div>
+                <label class="toggle-wrap">
+                  <input class="toggle-input" type="checkbox">
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+
+            </div>
+
+          </div><!-- /settings-col left -->
+
+          <!-- 右欄 -->
+          <div class="settings-col">
+
+            <!-- 系統資訊 -->
+            <div class="settings-section">
+              <div class="settings-section-head">系統資訊</div>
+              <div class="system-info-list">
+                <div class="sil-item">
+                  <span class="sil-label">系統版本</span>
+                  <span class="sil-value">守護系統 v2.4.1</span>
+                </div>
+                <div class="sil-item">
+                  <span class="sil-label">最後同步</span>
+                  <span class="sil-value">今日 07:50</span>
+                </div>
+                <div class="sil-item">
+                  <span class="sil-label">裝置數量</span>
+                  <span class="sil-value">24 個感測器在線</span>
+                </div>
+                <div class="sil-item">
+                  <span class="sil-label">資料中心</span>
+                  <span class="sil-value">台北主站（正常運作）</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 帳號管理 -->
+            <div class="settings-section">
+              <div class="settings-section-head">帳號管理</div>
+              <div class="settings-field">
+                <div class="field-label">修改密碼</div>
+                <button class="detail-link-btn">修改</button>
+              </div>
+              <div class="settings-field">
+                <div class="field-label">雙重驗證<div class="field-sub">已啟用 SMS 驗證</div></div>
+                <label class="toggle-wrap">
+                  <input class="toggle-input" type="checkbox" checked>
+                  <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </label>
+              </div>
+            </div>
+
+            <button class="settings-logout-btn">
+              <i class="bi bi-box-arrow-left"></i> 登出系統
+            </button>
+
+          </div><!-- /settings-col right -->
+
+        </div><!-- /settings-layout -->
+
+      </div><!-- /page-panel settings -->
 
     </main><!-- /page-content -->
 

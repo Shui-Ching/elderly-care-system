@@ -71,6 +71,13 @@
   border: 0.125rem solid var(--color-bg);
 }
 
+// ---- Top Bar 左側群組（主頁：切換角色 + logo）----
+.view-caregiver .top-bar > .top-bar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
 // ---- Top Bar 內頁版本（含返回鍵）----
 .view-caregiver .top-bar--inner {
   .top-bar-left {
@@ -115,6 +122,17 @@
   color: var(--color-accent);
   cursor: pointer;
   opacity: 0.85;
+}
+
+// ---- 切換角色連結 ----
+.view-caregiver .role-switch-link {
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+
+  &:hover { color: var(--color-accent); }
 }
 
 // ---- Bottom Nav ----

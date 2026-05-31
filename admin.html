@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>守護 — 系統管理</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="view-admin">
+
+<div class="app-shell">
+
+  <!-- ══ 側邊欄 ═══════════════════════════════════════════════════ -->
+  <aside class="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="brand-logo">守護</div>
+      <div class="brand-sub">系統管理後台</div>
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <a class="nav-item active" data-page="dashboard" href="#">
+        <span class="nav-icon"><i class="bi bi-speedometer2"></i></span>
+        <span class="nav-label">系統總覽</span>
+      </a>
+
+      <a class="nav-item" data-page="rules" href="#">
+        <span class="nav-icon"><i class="bi bi-bell-slash"></i></span>
+        <span class="nav-label">警報規則</span>
+      </a>
+
+      <a class="nav-item" data-page="accounts" href="#">
+        <span class="nav-icon"><i class="bi bi-people"></i></span>
+        <span class="nav-label">帳號管理</span>
+      </a>
+
+      <a class="nav-item" data-page="devices" href="#">
+        <span class="nav-icon"><i class="bi bi-hdd-network"></i></span>
+        <span class="nav-label">裝置管理</span>
+        <span class="nav-badge warn">2</span>
+      </a>
+
+      <a class="nav-item" data-page="logs" href="#">
+        <span class="nav-icon"><i class="bi bi-journal-text"></i></span>
+        <span class="nav-label">系統日誌</span>
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="carer-profile">
+        <div class="admin-avatar">李</div>
+        <div class="carer-info">
+          <div class="carer-name">李志豪 管理員</div>
+          <div class="admin-role-badge">系統管理員</div>
+        </div>
+      </div>
+      <button class="logout-btn" type="button">
+        <i class="bi bi-box-arrow-left"></i>
+        登出系統
+      </button>
+    </div>
+
+  </aside><!-- /sidebar -->
+
+  <!-- ══ 主區域 ═══════════════════════════════════════════════════ -->
+  <div class="main-area">
+
+    <header class="top-header">
+      <div class="header-left">
+        <span class="header-page-title">系統總覽</span>
+      </div>
+      <div class="header-right">
+        <span class="header-date" id="header-date"></span>
+        <div class="system-status-pill" id="system-status-pill">
+          <span class="status-dot-sm"></span>
+          系統正常運作中
+        </div>
+        <button class="header-notif-btn" type="button" aria-label="通知">
+          <i class="bi bi-bell"></i>
+          <span class="notif-dot"></span>
+        </button>
+        <div class="header-user">
+          <div class="admin-avatar-sm">李</div>
+          <div class="header-user-info">
+            <div class="header-user-name">李志豪</div>
+            <div class="header-user-role">系統管理員</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+
+      <!-- ══ 面板：系統總覽 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="dashboard">
+
+        <div class="page-heading">
+          <div class="page-heading-title">系統總覽</div>
+          <div class="page-heading-sub">守護系統 v2.4.1 — 所有子系統運作正常，上次掃描 07:50</div>
+        </div>
+
+        <div class="stats-grid">
+
+          <div class="stat-card stat-green">
+            <div class="stat-icon"><i class="bi bi-activity"></i></div>
+            <div class="stat-value">正常</div>
+            <div class="stat-label">系統狀態</div>
+            <div class="stat-delta"><i class="bi bi-clock"></i> 運行 47 天 12 小時</div>
+          </div>
+
+          <div class="stat-card stat-accent">
+            <div class="stat-icon"><i class="bi bi-hdd-stack"></i></div>
+            <div class="stat-value">24<span class="stat-sub-num">/28</span></div>
+            <div class="stat-label">在線裝置</div>
+            <div class="stat-delta"><i class="bi bi-exclamation-triangle"></i> 2 台低電量・2 台離線</div>
+          </div>
+
+          <div class="stat-card stat-blue">
+            <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="stat-value">8</div>
+            <div class="stat-label">活躍用戶</div>
+            <div class="stat-delta"><i class="bi bi-person-check"></i> 今日登入 5 人</div>
+          </div>
+
+          <div class="stat-card stat-red">
+            <div class="stat-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
+            <div class="stat-value">21</div>
+            <div class="stat-label">本月警報</div>
+            <div class="stat-delta"><i class="bi bi-arrow-down-short"></i> 較上月 -3 件</div>
+          </div>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+          <!-- 左欄：子系統健康 -->
+          <div class="dashboard-left">
+            <div class="panel">
+              <div class="panel-head">
+                <span class="panel-title">子系統狀態</span>
+                <span class="panel-action">重整</span>
+              </div>
+              <div class="subsystem-list">
+
+                <div class="subsystem-item">
+                  <div class="subsystem-icon ss-green"><i class="bi bi-database"></i></div>
+                  <div class="subsystem-meta">
+                    <div class="subsystem-name">資料庫服務</div>
+                    <div class="subsystem-detail">回應時間 12ms・PostgreSQL 14.3</div>
+                  </div>
+                  <span class="ss-badge badge-ok">正常</span>
+                </div>
+
+                <div class="subsystem-item">
+                  <div class="subsystem-icon ss-green"><i class="bi bi-wifi"></i></div>
+                  <div class="subsystem-meta">
+                    <div class="subsystem-name">IoT 感測網路</div>
+                    <div class="subsystem-detail">24/28 裝置在線・MQTT 延遲 &lt;100ms</div>
+                  </div>
+                  <span class="ss-badge badge-ok">正常</span>
+                </div>
+
+                <div class="subsystem-item">
+                  <div class="subsystem-icon ss-yellow"><i class="bi bi-bell"></i></div>
+                  <div class="subsystem-meta">
+                    <div class="subsystem-name">警報推播服務</div>
+                    <div class="subsystem-detail">推播延遲偏高 820ms・通常 &lt;200ms</div>
+                  </div>
+                  <span class="ss-badge badge-warn">稍慢</span>
+                </div>
+
+                <div class="subsystem-item">
+                  <div class="subsystem-icon ss-green"><i class="bi bi-telephone"></i></div>
+                  <div class="subsystem-meta">
+                    <div class="subsystem-name">自動撥打電話</div>
+                    <div class="subsystem-detail">VoIP 服務正常・今日撥出 3 通</div>
+                  </div>
+                  <span class="ss-badge badge-ok">正常</span>
+                </div>
+
+                <div class="subsystem-item">
+                  <div class="subsystem-icon ss-green"><i class="bi bi-cloud-check"></i></div>
+                  <div class="subsystem-meta">
+                    <div class="subsystem-name">資料備份</div>
+                    <div class="subsystem-detail">最後備份今日 09:00・2.3 GB</div>
+                  </div>
+                  <span class="ss-badge badge-ok">正常</span>
+                </div>
+
+                <div class="subsystem-item">
+                  <div class="subsystem-icon ss-green"><i class="bi bi-cpu"></i></div>
+                  <div class="subsystem-meta">
+                    <div class="subsystem-name">AI 分析引擎</div>
+                    <div class="subsystem-detail">CPU 23%・RAM 41%・運算佇列 0</div>
+                  </div>
+                  <span class="ss-badge badge-ok">正常</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- 右欄：近期系統事件 -->
+          <div class="dashboard-right">
+            <div class="panel">
+              <div class="panel-head">
+                <span class="panel-title">近期系統事件</span>
+                <span class="panel-action" data-go-page="logs">查看全部</span>
+              </div>
+              <div class="event-feed">
+
+                <div class="event-item event-warn">
+                  <span class="event-icon"><i class="bi bi-exclamation-triangle"></i></span>
+                  <div class="event-body">
+                    <div class="event-msg">王美華 血壓異常升級至 🔴 紅燈</div>
+                    <div class="event-time">今日 08:50</div>
+                  </div>
+                  <span class="event-type-badge badge-alert">警報</span>
+                </div>
+
+                <div class="event-item event-warn">
+                  <span class="event-icon"><i class="bi bi-reception-0"></i></span>
+                  <div class="event-body">
+                    <div class="event-msg">李月珍 瓦斯偵測器離線（電量耗盡）</div>
+                    <div class="event-time">今日 08:30</div>
+                  </div>
+                  <span class="event-type-badge badge-device">裝置</span>
+                </div>
+
+                <div class="event-item">
+                  <span class="event-icon"><i class="bi bi-person-check"></i></span>
+                  <div class="event-body">
+                    <div class="event-msg">社工師 林佳慧 登入系統</div>
+                    <div class="event-time">今日 08:00</div>
+                  </div>
+                  <span class="event-type-badge badge-login">登入</span>
+                </div>
+
+                <div class="event-item">
+                  <span class="event-icon"><i class="bi bi-cloud-check"></i></span>
+                  <div class="event-body">
+                    <div class="event-msg">系統每日報表自動產出完成</div>
+                    <div class="event-time">昨日 23:30</div>
+                  </div>
+                  <span class="event-type-badge badge-system">系統</span>
+                </div>
+
+                <div class="event-item">
+                  <span class="event-icon"><i class="bi bi-cloud-upload"></i></span>
+                  <div class="event-body">
+                    <div class="event-msg">定時備份完成（資料庫 v2.4.1）</div>
+                    <div class="event-time">昨日 09:00</div>
+                  </div>
+                  <span class="event-type-badge badge-system">系統</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div><!-- /page-panel dashboard -->
+
+      <!-- ══ 面板：警報規則 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="rules" hidden>
+
+        <div class="page-heading" style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem">
+          <div>
+            <div class="page-heading-title">警報規則設定</div>
+            <div class="page-heading-sub">共 6 條規則，全數啟用中</div>
+          </div>
+          <button class="add-btn"><i class="bi bi-plus-lg"></i> 新增規則</button>
+        </div>
+
+        <div class="rules-list">
+
+          <!-- 規則 1 -->
+          <div class="rule-card">
+            <div class="rule-header">
+              <div class="rule-icon-wrap rule-orange"><i class="bi bi-clock-history"></i></div>
+              <div class="rule-meta">
+                <div class="rule-name">長者無活動超時警報</div>
+                <div class="rule-desc">感測器在設定時數內無任何動作訊號，觸發生活異常警示</div>
+              </div>
+              <label class="toggle-wrap" title="啟用/停用此規則">
+                <input class="toggle-input" type="checkbox" checked>
+                <div class="toggle-track"><div class="toggle-thumb"></div></div>
+              </label>
+            </div>
+            <div class="rule-body">
+              <div class="rule-param">
+                <span class="rule-param-label">無活動閾值</span>
+                <div class="rule-param-ctrl">
+                  <input class="rule-input" type="number" value="6" min="1" max="24">
+                  <span class="rule-input-unit">小時</span>
+                </div>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發等級</span>
+                <span class="rule-level-badge badge-yellow">🟡 黃燈</span>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發動作</span>
+                <div class="rule-actions-list">
+                  <span class="rule-action-tag">系統電話撥打</span>
+                  <span class="rule-action-tag">推播通知家屬</span>
+                  <span class="rule-action-tag">通知負責社工</span>
+                </div>
+              </div>
+            </div>
+            <div class="rule-footer">
+              <span class="rule-stat"><i class="bi bi-lightning"></i> 本月觸發 8 次</span>
+              <div class="rule-btns">
+                <button class="rule-btn-ghost">編輯規則</button>
+                <button class="rule-btn-danger">刪除</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 規則 2 -->
+          <div class="rule-card">
+            <div class="rule-header">
+              <div class="rule-icon-wrap rule-red"><i class="bi bi-heart-pulse"></i></div>
+              <div class="rule-meta">
+                <div class="rule-name">穿戴裝置生理指標異常</div>
+                <div class="rule-desc">心率或血壓超出正常範圍，立即觸發緊急警報</div>
+              </div>
+              <label class="toggle-wrap">
+                <input class="toggle-input" type="checkbox" checked>
+                <div class="toggle-track"><div class="toggle-thumb"></div></div>
+              </label>
+            </div>
+            <div class="rule-body">
+              <div class="rule-param">
+                <span class="rule-param-label">心率閾值</span>
+                <div class="rule-param-ctrl">
+                  <span class="rule-input-unit">超過</span>
+                  <input class="rule-input" type="number" value="100" min="60" max="200">
+                  <span class="rule-input-unit">bpm</span>
+                </div>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">血壓閾值</span>
+                <div class="rule-param-ctrl">
+                  <span class="rule-input-unit">收縮壓超過</span>
+                  <input class="rule-input" type="number" value="150" min="100" max="200">
+                  <span class="rule-input-unit">mmHg</span>
+                </div>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發等級</span>
+                <span class="rule-level-badge badge-red">🔴 紅燈</span>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發動作</span>
+                <div class="rule-actions-list">
+                  <span class="rule-action-tag">即時通報家屬</span>
+                  <span class="rule-action-tag">通知負責社工</span>
+                  <span class="rule-action-tag">排定緊急訪視</span>
+                </div>
+              </div>
+            </div>
+            <div class="rule-footer">
+              <span class="rule-stat"><i class="bi bi-lightning"></i> 本月觸發 3 次</span>
+              <div class="rule-btns">
+                <button class="rule-btn-ghost">編輯規則</button>
+                <button class="rule-btn-danger">刪除</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 規則 3 -->
+          <div class="rule-card">
+            <div class="rule-header">
+              <div class="rule-icon-wrap rule-blue"><i class="bi bi-capsule"></i></div>
+              <div class="rule-meta">
+                <div class="rule-name">服藥提醒未確認</div>
+                <div class="rule-desc">服藥提醒推播後，指定時間內無確認回應</div>
+              </div>
+              <label class="toggle-wrap">
+                <input class="toggle-input" type="checkbox" checked>
+                <div class="toggle-track"><div class="toggle-thumb"></div></div>
+              </label>
+            </div>
+            <div class="rule-body">
+              <div class="rule-param">
+                <span class="rule-param-label">等待時間</span>
+                <div class="rule-param-ctrl">
+                  <input class="rule-input" type="number" value="30" min="10" max="120">
+                  <span class="rule-input-unit">分鐘</span>
+                </div>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發等級</span>
+                <span class="rule-level-badge badge-yellow">🟡 黃燈</span>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發動作</span>
+                <div class="rule-actions-list">
+                  <span class="rule-action-tag">推播通知家屬</span>
+                  <span class="rule-action-tag">記錄服藥紀錄</span>
+                </div>
+              </div>
+            </div>
+            <div class="rule-footer">
+              <span class="rule-stat"><i class="bi bi-lightning"></i> 本月觸發 5 次</span>
+              <div class="rule-btns">
+                <button class="rule-btn-ghost">編輯規則</button>
+                <button class="rule-btn-danger">刪除</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 規則 4 -->
+          <div class="rule-card">
+            <div class="rule-header">
+              <div class="rule-icon-wrap rule-orange"><i class="bi bi-door-closed"></i></div>
+              <div class="rule-meta">
+                <div class="rule-name">長期未外出警示</div>
+                <div class="rule-desc">連續 N 天偵測到門磁未開啟，可能出現社交隔絕</div>
+              </div>
+              <label class="toggle-wrap">
+                <input class="toggle-input" type="checkbox" checked>
+                <div class="toggle-track"><div class="toggle-thumb"></div></div>
+              </label>
+            </div>
+            <div class="rule-body">
+              <div class="rule-param">
+                <span class="rule-param-label">連續未外出</span>
+                <div class="rule-param-ctrl">
+                  <input class="rule-input" type="number" value="3" min="1" max="14">
+                  <span class="rule-input-unit">天</span>
+                </div>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發等級</span>
+                <span class="rule-level-badge badge-yellow">🟡 黃燈</span>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發動作</span>
+                <div class="rule-actions-list">
+                  <span class="rule-action-tag">通知負責社工</span>
+                  <span class="rule-action-tag">建議排定訪視</span>
+                </div>
+              </div>
+            </div>
+            <div class="rule-footer">
+              <span class="rule-stat"><i class="bi bi-lightning"></i> 本月觸發 2 次</span>
+              <div class="rule-btns">
+                <button class="rule-btn-ghost">編輯規則</button>
+                <button class="rule-btn-danger">刪除</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 規則 5 -->
+          <div class="rule-card">
+            <div class="rule-header">
+              <div class="rule-icon-wrap rule-red"><i class="bi bi-broadcast"></i></div>
+              <div class="rule-meta">
+                <div class="rule-name">SOS 緊急求助</div>
+                <div class="rule-desc">長者主動按下緊急按鈕，立即觸發最高等級警報</div>
+              </div>
+              <label class="toggle-wrap">
+                <input class="toggle-input" type="checkbox" checked>
+                <div class="toggle-track"><div class="toggle-thumb"></div></div>
+              </label>
+            </div>
+            <div class="rule-body">
+              <div class="rule-param">
+                <span class="rule-param-label">觸發條件</span>
+                <span class="rule-detail-text">按下 SOS 按鈕即觸發，無延遲</span>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發等級</span>
+                <span class="rule-level-badge badge-red">🔴 紅燈</span>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發動作</span>
+                <div class="rule-actions-list">
+                  <span class="rule-action-tag">即時通報家屬</span>
+                  <span class="rule-action-tag">通知負責社工</span>
+                  <span class="rule-action-tag">通報里長</span>
+                  <span class="rule-action-tag">建議撥打 119</span>
+                </div>
+              </div>
+            </div>
+            <div class="rule-footer">
+              <span class="rule-stat"><i class="bi bi-lightning"></i> 本月觸發 0 次</span>
+              <div class="rule-btns">
+                <button class="rule-btn-ghost">編輯規則</button>
+                <button class="rule-btn-danger">刪除</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 規則 6 -->
+          <div class="rule-card">
+            <div class="rule-header">
+              <div class="rule-icon-wrap rule-yellow"><i class="bi bi-telephone-x"></i></div>
+              <div class="rule-meta">
+                <div class="rule-name">家屬聯繫不足提醒</div>
+                <div class="rule-desc">統計週期內家屬聯繫次數低於建議下限</div>
+              </div>
+              <label class="toggle-wrap">
+                <input class="toggle-input" type="checkbox" checked>
+                <div class="toggle-track"><div class="toggle-thumb"></div></div>
+              </label>
+            </div>
+            <div class="rule-body">
+              <div class="rule-param">
+                <span class="rule-param-label">最低聯繫次數</span>
+                <div class="rule-param-ctrl">
+                  <input class="rule-input" type="number" value="2" min="1" max="7">
+                  <span class="rule-input-unit">次 / 週</span>
+                </div>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發等級</span>
+                <span class="rule-level-badge badge-yellow">🟡 黃燈</span>
+              </div>
+              <div class="rule-param">
+                <span class="rule-param-label">觸發動作</span>
+                <div class="rule-actions-list">
+                  <span class="rule-action-tag">提醒負責社工</span>
+                  <span class="rule-action-tag">記錄待追蹤事項</span>
+                </div>
+              </div>
+            </div>
+            <div class="rule-footer">
+              <span class="rule-stat"><i class="bi bi-lightning"></i> 本月觸發 3 次</span>
+              <div class="rule-btns">
+                <button class="rule-btn-ghost">編輯規則</button>
+                <button class="rule-btn-danger">刪除</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /rules-list -->
+
+      </div><!-- /page-panel rules -->
+
+      <!-- ══ 面板：帳號管理 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="accounts" hidden>
+
+        <div class="page-heading" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+          <div>
+            <div class="page-heading-title">帳號管理</div>
+            <div class="page-heading-sub">系統共 16 個帳號，涵蓋 4 種角色</div>
+          </div>
+          <button class="add-btn"><i class="bi bi-person-plus"></i> 新增帳號</button>
+        </div>
+
+        <div class="panel">
+
+          <div class="panel-toolbar">
+            <div class="search-box">
+              <span class="search-icon"><i class="bi bi-search"></i></span>
+              <input type="text" placeholder="搜尋姓名、帳號…">
+            </div>
+            <div class="filter-tabs" data-filter-group>
+              <button class="filter-tab-btn active" data-filter data-filter-class="active">全部 <span class="tab-count">16</span></button>
+              <button class="filter-tab-btn" data-filter data-filter-class="active">系統管理員 <span class="tab-count">2</span></button>
+              <button class="filter-tab-btn" data-filter data-filter-class="active">社工師 <span class="tab-count">5</span></button>
+              <button class="filter-tab-btn" data-filter data-filter-class="active">家屬 <span class="tab-count">9</span></button>
+            </div>
+          </div>
+
+          <div class="accounts-table-head">
+            <span></span>
+            <span>姓名 / 帳號</span>
+            <span>角色</span>
+            <span style="text-align:center">狀態</span>
+            <span style="text-align:center">最後登入</span>
+            <span style="text-align:center">管轄案件</span>
+            <span></span>
+          </div>
+
+          <div class="accounts-list">
+
+            <div class="account-row">
+              <div class="account-avatar av-admin">李</div>
+              <div class="account-meta">
+                <div class="account-name">李志豪</div>
+                <div class="account-email">chihhao.li@admin.gov.tw</div>
+              </div>
+              <span class="role-badge role-admin">系統管理員</span>
+              <div style="text-align:center"><span class="status-badge status-ok">在線</span></div>
+              <div class="account-stat">今日 09:05</div>
+              <div class="account-stat">—</div>
+              <div class="account-actions">
+                <button class="detail-link-btn">編輯</button>
+                <button class="action-icon-btn btn-disable" title="停用帳號"><i class="bi bi-slash-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="account-row">
+              <div class="account-avatar av-admin">陳</div>
+              <div class="account-meta">
+                <div class="account-name">陳怡安</div>
+                <div class="account-email">yian.chen@admin.gov.tw</div>
+              </div>
+              <span class="role-badge role-admin">系統管理員</span>
+              <div style="text-align:center"><span class="status-badge status-ok">在線</span></div>
+              <div class="account-stat">今日 08:30</div>
+              <div class="account-stat">—</div>
+              <div class="account-actions">
+                <button class="detail-link-btn">編輯</button>
+                <button class="action-icon-btn btn-disable" title="停用帳號"><i class="bi bi-slash-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="account-row">
+              <div class="account-avatar av-sw">林</div>
+              <div class="account-meta">
+                <div class="account-name">林佳慧</div>
+                <div class="account-email">jiahui.lin@care.gov.tw</div>
+              </div>
+              <span class="role-badge role-sw">社工師</span>
+              <div style="text-align:center"><span class="status-badge status-ok">在線</span></div>
+              <div class="account-stat">今日 08:00</div>
+              <div class="account-stat">12</div>
+              <div class="account-actions">
+                <button class="detail-link-btn">編輯</button>
+                <button class="action-icon-btn btn-disable" title="停用帳號"><i class="bi bi-slash-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="account-row">
+              <div class="account-avatar av-sw">陳</div>
+              <div class="account-meta">
+                <div class="account-name">陳建明</div>
+                <div class="account-email">jianming.chen@care.gov.tw</div>
+              </div>
+              <span class="role-badge role-sw">社工師</span>
+              <div style="text-align:center"><span class="status-badge status-ok">在線</span></div>
+              <div class="account-stat">今日 07:45</div>
+              <div class="account-stat">9</div>
+              <div class="account-actions">
+                <button class="detail-link-btn">編輯</button>
+                <button class="action-icon-btn btn-disable" title="停用帳號"><i class="bi bi-slash-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="account-row">
+              <div class="account-avatar av-volunteer">王</div>
+              <div class="account-meta">
+                <div class="account-name">王淑芬</div>
+                <div class="account-email">shufen.wang@volunteer.org</div>
+              </div>
+              <span class="role-badge role-volunteer">志工</span>
+              <div style="text-align:center"><span class="status-badge status-warn">未上線</span></div>
+              <div class="account-stat">昨日 14:20</div>
+              <div class="account-stat">5</div>
+              <div class="account-actions">
+                <button class="detail-link-btn">編輯</button>
+                <button class="action-icon-btn btn-disable" title="停用帳號"><i class="bi bi-slash-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="account-row">
+              <div class="account-avatar av-caregiver">張</div>
+              <div class="account-meta">
+                <div class="account-name">張文凱</div>
+                <div class="account-email">wenkai.chang@gmail.com</div>
+              </div>
+              <span class="role-badge role-caregiver">家屬</span>
+              <div style="text-align:center"><span class="status-badge status-ok">在線</span></div>
+              <div class="account-stat">今日 08:15</div>
+              <div class="account-stat">1</div>
+              <div class="account-actions">
+                <button class="detail-link-btn">編輯</button>
+                <button class="action-icon-btn btn-disable" title="停用帳號"><i class="bi bi-slash-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="account-row row-disabled">
+              <div class="account-avatar av-caregiver">劉</div>
+              <div class="account-meta">
+                <div class="account-name">劉家豪</div>
+                <div class="account-email">jiahao.liu@gmail.com</div>
+              </div>
+              <span class="role-badge role-caregiver">家屬</span>
+              <div style="text-align:center"><span class="status-badge status-off">已停用</span></div>
+              <div class="account-stat">2025/12/08</div>
+              <div class="account-stat">1</div>
+              <div class="account-actions">
+                <button class="detail-link-btn">編輯</button>
+                <button class="action-icon-btn btn-enable" title="重新啟用"><i class="bi bi-person-check"></i></button>
+              </div>
+            </div>
+
+          </div><!-- /accounts-list -->
+
+          <div class="elders-footer">
+            <span class="elders-count">顯示 7 / 16 筆・依角色排序</span>
+          </div>
+
+        </div><!-- /panel -->
+
+      </div><!-- /page-panel accounts -->
+
+      <!-- ══ 面板：裝置管理 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="devices" hidden>
+
+        <div class="page-heading" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+          <div>
+            <div class="page-heading-title">IoT 裝置管理</div>
+            <div class="page-heading-sub">共 28 台感測器，24 台在線，2 台低電量，2 台離線</div>
+          </div>
+          <button class="add-btn"><i class="bi bi-plus-lg"></i> 新增裝置</button>
+        </div>
+
+        <div class="device-summary">
+          <div class="ds-item ds-green">
+            <div class="ds-num">24</div>
+            <div class="ds-label">在線</div>
+          </div>
+          <div class="ds-item ds-yellow">
+            <div class="ds-num">2</div>
+            <div class="ds-label">低電量</div>
+          </div>
+          <div class="ds-item ds-red">
+            <div class="ds-num">2</div>
+            <div class="ds-label">離線</div>
+          </div>
+          <div class="ds-item">
+            <div class="ds-num">28</div>
+            <div class="ds-label">總計</div>
+          </div>
+        </div>
+
+        <div class="panel">
+
+          <div class="devices-table-head">
+            <span></span>
+            <span>裝置名稱</span>
+            <span>類型</span>
+            <span>綁定長者</span>
+            <span style="text-align:center">狀態</span>
+            <span>電量</span>
+            <span style="text-align:center">最後同步</span>
+            <span></span>
+          </div>
+
+          <div class="devices-list">
+
+            <div class="device-row">
+              <div class="device-type-icon dt-door"><i class="bi bi-door-closed"></i></div>
+              <div class="device-name-cell">
+                <div class="device-name">門磁感測器 #001</div>
+                <div class="device-id">DEV-DOOR-001</div>
+              </div>
+              <span class="device-type-tag">門磁</span>
+              <div class="device-elder">陳秀英 女士</div>
+              <div style="text-align:center"><span class="device-status-badge ds-badge-ok">在線</span></div>
+              <div class="device-battery">
+                <div class="battery-bar"><div class="battery-fill" style="width:87%"></div></div>
+                <span class="battery-pct">87%</span>
+              </div>
+              <div class="device-sync">今日 08:30</div>
+              <div class="device-actions"><button class="detail-link-btn">詳情</button></div>
+            </div>
+
+            <div class="device-row">
+              <div class="device-type-icon dt-motion"><i class="bi bi-person-bounding-box"></i></div>
+              <div class="device-name-cell">
+                <div class="device-name">移動偵測器 #001</div>
+                <div class="device-id">DEV-MOT-001</div>
+              </div>
+              <span class="device-type-tag">移動</span>
+              <div class="device-elder">陳秀英 女士</div>
+              <div style="text-align:center"><span class="device-status-badge ds-badge-ok">在線</span></div>
+              <div class="device-battery">
+                <div class="battery-bar"><div class="battery-fill" style="width:72%"></div></div>
+                <span class="battery-pct">72%</span>
+              </div>
+              <div class="device-sync">今日 08:31</div>
+              <div class="device-actions"><button class="detail-link-btn">詳情</button></div>
+            </div>
+
+            <div class="device-row row-warning">
+              <div class="device-type-icon dt-wearable"><i class="bi bi-watch"></i></div>
+              <div class="device-name-cell">
+                <div class="device-name">穿戴裝置 #002</div>
+                <div class="device-id">DEV-WEAR-002</div>
+              </div>
+              <span class="device-type-tag">穿戴</span>
+              <div class="device-elder">林阿明 先生</div>
+              <div style="text-align:center"><span class="device-status-badge ds-badge-warn">低電量</span></div>
+              <div class="device-battery">
+                <div class="battery-bar"><div class="battery-fill fill-low" style="width:18%"></div></div>
+                <span class="battery-pct warn-pct">18%</span>
+              </div>
+              <div class="device-sync">今日 08:00</div>
+              <div class="device-actions"><button class="detail-link-btn">詳情</button></div>
+            </div>
+
+            <div class="device-row">
+              <div class="device-type-icon dt-health"><i class="bi bi-heart-pulse"></i></div>
+              <div class="device-name-cell">
+                <div class="device-name">血壓感測器 #001</div>
+                <div class="device-id">DEV-BP-001</div>
+              </div>
+              <span class="device-type-tag">穿戴</span>
+              <div class="device-elder">王美華 女士</div>
+              <div style="text-align:center"><span class="device-status-badge ds-badge-ok">在線</span></div>
+              <div class="device-battery">
+                <div class="battery-bar"><div class="battery-fill" style="width:45%"></div></div>
+                <span class="battery-pct">45%</span>
+              </div>
+              <div class="device-sync">今日 07:50</div>
+              <div class="device-actions"><button class="detail-link-btn">詳情</button></div>
+            </div>
+
+            <div class="device-row row-offline">
+              <div class="device-type-icon dt-gas"><i class="bi bi-cloud-slash"></i></div>
+              <div class="device-name-cell">
+                <div class="device-name">瓦斯偵測器 #001</div>
+                <div class="device-id">DEV-GAS-001</div>
+              </div>
+              <span class="device-type-tag">瓦斯</span>
+              <div class="device-elder">李月珍 女士</div>
+              <div style="text-align:center"><span class="device-status-badge ds-badge-off">離線</span></div>
+              <div class="device-battery">
+                <div class="battery-bar"><div class="battery-fill fill-empty" style="width:0%"></div></div>
+                <span class="battery-pct warn-pct">0%</span>
+              </div>
+              <div class="device-sync">3 天前</div>
+              <div class="device-actions"><button class="detail-link-btn">詳情</button></div>
+            </div>
+
+            <div class="device-row">
+              <div class="device-type-icon dt-power"><i class="bi bi-lightning-charge"></i></div>
+              <div class="device-name-cell">
+                <div class="device-name">電力監測器 #001</div>
+                <div class="device-id">DEV-PWR-001</div>
+              </div>
+              <span class="device-type-tag">電力</span>
+              <div class="device-elder">張德財 先生</div>
+              <div style="text-align:center"><span class="device-status-badge ds-badge-ok">在線</span></div>
+              <div class="device-battery">
+                <div class="battery-bar"><div class="battery-fill" style="width:100%"></div></div>
+                <span class="battery-pct">插電</span>
+              </div>
+              <div class="device-sync">今日 09:10</div>
+              <div class="device-actions"><button class="detail-link-btn">詳情</button></div>
+            </div>
+
+            <div class="device-row row-warning">
+              <div class="device-type-icon dt-motion"><i class="bi bi-person-bounding-box"></i></div>
+              <div class="device-name-cell">
+                <div class="device-name">移動偵測器 #003</div>
+                <div class="device-id">DEV-MOT-003</div>
+              </div>
+              <span class="device-type-tag">移動</span>
+              <div class="device-elder">黃春嬌 女士</div>
+              <div style="text-align:center"><span class="device-status-badge ds-badge-warn">低電量</span></div>
+              <div class="device-battery">
+                <div class="battery-bar"><div class="battery-fill fill-low" style="width:22%"></div></div>
+                <span class="battery-pct warn-pct">22%</span>
+              </div>
+              <div class="device-sync">今日 07:30</div>
+              <div class="device-actions"><button class="detail-link-btn">詳情</button></div>
+            </div>
+
+          </div><!-- /devices-list -->
+
+          <div class="elders-footer">
+            <span class="elders-count">顯示 7 / 28 筆・依狀態排序（異常優先）</span>
+          </div>
+
+        </div><!-- /panel -->
+
+      </div><!-- /page-panel devices -->
+
+      <!-- ══ 面板：系統日誌 ════════════════════════════════════════ -->
+      <div class="page-panel" data-panel="logs" hidden>
+
+        <div class="page-heading">
+          <div class="page-heading-title">系統日誌</div>
+          <div class="page-heading-sub">記錄所有系統事件、登入紀錄、裝置狀態變更</div>
+        </div>
+
+        <div class="log-filter-row" data-filter-group>
+          <button class="filter-tab-btn active" data-filter data-filter-class="active">全部</button>
+          <button class="filter-tab-btn" data-filter data-filter-class="active">警報</button>
+          <button class="filter-tab-btn" data-filter data-filter-class="active">登入</button>
+          <button class="filter-tab-btn" data-filter data-filter-class="active">裝置</button>
+          <button class="filter-tab-btn" data-filter data-filter-class="active">系統</button>
+          <button class="filter-tab-btn" data-filter data-filter-class="active">設定</button>
+        </div>
+
+        <div class="log-feed">
+
+          <div class="log-item">
+            <div class="log-icon li-system"><i class="bi bi-cloud-check"></i></div>
+            <div class="log-body">
+              <div class="log-msg">系統定時備份完成，資料庫快照 v2.4.1-20260530</div>
+              <div class="log-detail">備份大小 2.3 GB・儲存至台北主站・耗時 4 分 12 秒</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-system">系統</span>
+              <span class="log-time">今日 09:00</span>
+            </div>
+          </div>
+
+          <div class="log-item log-warn">
+            <div class="log-icon li-alert"><i class="bi bi-exclamation-triangle"></i></div>
+            <div class="log-body">
+              <div class="log-msg">王美華 女士：血壓警報升級至 🔴 紅燈</div>
+              <div class="log-detail">收縮壓 158 mmHg，超出閾值 150 mmHg，已通報林佳慧社工師</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-alert">警報</span>
+              <span class="log-time">今日 08:50</span>
+            </div>
+          </div>
+
+          <div class="log-item log-danger">
+            <div class="log-icon li-device"><i class="bi bi-reception-0"></i></div>
+            <div class="log-body">
+              <div class="log-msg">裝置離線：李月珍 女士 瓦斯偵測器 DEV-GAS-001</div>
+              <div class="log-detail">電量耗盡，最後回報電量 2%，請安排更換電池</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-device">裝置</span>
+              <span class="log-time">今日 08:30</span>
+            </div>
+          </div>
+
+          <div class="log-item">
+            <div class="log-icon li-login"><i class="bi bi-person-check"></i></div>
+            <div class="log-body">
+              <div class="log-msg">社工師 林佳慧 登入系統</div>
+              <div class="log-detail">IP: 192.168.1.24・裝置: Chrome / Windows 11</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-login">登入</span>
+              <span class="log-time">今日 08:00</span>
+            </div>
+          </div>
+
+          <div class="log-item">
+            <div class="log-icon li-login"><i class="bi bi-person-check"></i></div>
+            <div class="log-body">
+              <div class="log-msg">社工師 陳建明 登入系統</div>
+              <div class="log-detail">IP: 192.168.1.35・裝置: Safari / macOS Sequoia</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-login">登入</span>
+              <span class="log-time">今日 07:45</span>
+            </div>
+          </div>
+
+          <div class="log-item">
+            <div class="log-icon li-system"><i class="bi bi-file-earmark-bar-graph"></i></div>
+            <div class="log-body">
+              <div class="log-msg">每日系統報表自動產出完成</div>
+              <div class="log-detail">2026/05/29 系統摘要・已傳送至管理員信箱</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-system">系統</span>
+              <span class="log-time">昨日 23:30</span>
+            </div>
+          </div>
+
+          <div class="log-item log-warn">
+            <div class="log-icon li-alert"><i class="bi bi-telephone-x"></i></div>
+            <div class="log-body">
+              <div class="log-msg">陳秀英 女士：家屬聯繫不足警報觸發</div>
+              <div class="log-detail">本週聯繫 0 次，低於設定閾值 2 次/週</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-alert">警報</span>
+              <span class="log-time">昨日 18:30</span>
+            </div>
+          </div>
+
+          <div class="log-item">
+            <div class="log-icon li-config"><i class="bi bi-sliders"></i></div>
+            <div class="log-body">
+              <div class="log-msg">警報規則修改：「穿戴裝置生理指標異常」血壓閾值調整</div>
+              <div class="log-detail">由 140 mmHg → 150 mmHg・操作者：李志豪</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-config">設定</span>
+              <span class="log-time">昨日 11:20</span>
+            </div>
+          </div>
+
+          <div class="log-item">
+            <div class="log-icon li-login"><i class="bi bi-person-x"></i></div>
+            <div class="log-body">
+              <div class="log-msg">帳號 劉家豪 已被停用</div>
+              <div class="log-detail">停用原因：長者已轉介他機構・操作者：陳怡安</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-login">帳號</span>
+              <span class="log-time">2026/05/15</span>
+            </div>
+          </div>
+
+          <div class="log-item">
+            <div class="log-icon li-system"><i class="bi bi-cloud-check"></i></div>
+            <div class="log-body">
+              <div class="log-msg">系統版本更新至 v2.4.1</div>
+              <div class="log-detail">更新內容：警報推播效能優化、AI 分析模型更新至 2026Q1 版本</div>
+            </div>
+            <div class="log-meta">
+              <span class="log-type-badge badge-system">系統</span>
+              <span class="log-time">2026/05/01</span>
+            </div>
+          </div>
+
+        </div><!-- /log-feed -->
+
+      </div><!-- /page-panel logs -->
+
+    </main>
+
+  </div><!-- /main-area -->
+
+</div><!-- /app-shell -->
+
+<script src="js/admin-main.js"></script>
+</body>
+</html>

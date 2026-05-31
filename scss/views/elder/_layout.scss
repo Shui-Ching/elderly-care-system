@@ -27,6 +27,24 @@
   gap: 1.125rem;
 }
 
+// ---- Top Bar 左側群組（切換角色 + 時鐘）----
+.view-elder .top-bar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+// ---- 切換角色連結 ----
+.view-elder .role-switch-link {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+
+  &:hover { color: var(--color-accent); }
+}
+
 // ---- 通知圖示鈕（右上角）----
 .view-elder .notif-icon-btn {
   width: 3rem;

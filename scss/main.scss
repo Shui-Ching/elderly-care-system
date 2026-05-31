@@ -32,4 +32,19 @@
 @use 'views/social-worker/sidebar' as *;
 @use 'views/social-worker/header' as *;
 @use 'views/social-worker/dashboard' as *;
- 
+@use 'views/social-worker/elders-panel' as *;
+@use 'views/social-worker/alerts-center' as *;
+@use 'views/social-worker/visits-panel' as *;
+@use 'views/social-worker/reports-panel' as *;
+@use 'views/social-worker/settings-panel' as *;
+
+// 管理員後台（view-admin）
+@use 'views/admin/layout' as *;
+@use 'views/admin/sidebar' as *;
+@use 'views/admin/header' as *;
+@use 'views/admin/dashboard' as *;
+@use 'views/admin/alert-rules' as *;
+@use 'views/admin/accounts' as *;
+@use 'views/admin/devices' as *;
+@use 'views/admin/logs' as *;
+     
